@@ -6,8 +6,10 @@ import groovy.json.JsonOutput
 class Semaphore {
     static String foo = 'bar'
    
+    static void Semapi(String[] args) {
+    }
+    
    //    def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])   
-
    // refer to this in a pipeline using:
    //
    // import com.intercress.GlobalVars
