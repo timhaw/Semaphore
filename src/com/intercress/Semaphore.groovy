@@ -4,7 +4,6 @@ package com.intercress
 import groovy.json.JsonOutput
 
 class Semaphore {
-    static String foo = 'bar'
    
     static void Semapi(String[] args) {
        def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])    
@@ -15,8 +14,12 @@ class Semaphore {
            httpMode: 'POST', \
            requestBody: credentials, \
            url: "http://localhost:3000/api/auth/login"
+
+        def cookieContent = cookie.headers.get("Set-Cookie")    
     }
     
+    static String foo = ${cookieCntent}
+ 
    //    def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])   
    // refer to this in a pipeline using:
    //
