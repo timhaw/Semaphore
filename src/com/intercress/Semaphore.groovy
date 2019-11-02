@@ -8,7 +8,7 @@ class Semaphore {
     static String foo = 'bar'
        
     def String httpRequest() {
-        httpRequest url: "http://localhost:3000/api/auth/login"
+        httpRequest acceptType: 'APPLICATION_JSON', consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "http://localhost:3000/api/auth/login"
     }
 
     static String Semapi(String[] password) {
