@@ -2,7 +2,7 @@ import com.intercress.*
 
 def call(String playbook) {
   
-  def wibble = 'Tim'
+  def wibble = ${Semaphore.foo}
   
   echo "Hello, ${Semaphore.foo}"
 }
