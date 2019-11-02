@@ -7,9 +7,9 @@ class Semaphore {
    
     static String foo = 'bar'
 
-    static String Semapi(String[] args) {
+    static String Semapi(String[] password) {
        
-//       def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])    
+       def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])    
        
 //       def cookie = httpRequest \
 //           acceptType: 'APPLICATION_JSON', \
@@ -21,7 +21,7 @@ class Semaphore {
 
 //        def cookieContent = cookie.headers.get("Set-Cookie")
        
-        def cookieContent = args
+        def cookieContent = credentials
        
         return cookieContent
     }
