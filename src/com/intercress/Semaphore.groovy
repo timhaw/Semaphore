@@ -4,7 +4,8 @@ package com.intercress
 import groovy.json.JsonOutput
 
 class Semaphore {
-   static String foo = "bar"
+   def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])   
+   static String foo = ${schema}
 
    // refer to this in a pipeline using:
    //
