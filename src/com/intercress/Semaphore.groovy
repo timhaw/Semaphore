@@ -7,6 +7,7 @@ class Semaphore {
     static String foo = 'bar'
    
     static void Semapi(String[] args) {
+       def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])    
     }
     
    //    def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])   
