@@ -7,7 +7,7 @@ class Semaphore {
        
     static String foo = 'bar'
        
-    static String httpRequest() {
+    def String httpRequest() {
         httpRequest url: "http://localhost:3000/api/auth/login"
     }
 
@@ -17,7 +17,7 @@ class Semaphore {
        
 //       httpRequestCookie(credentials)
                
-       def cookie = httpRequest()
+       def cookie = this.httpRequest()
 //       def cookie = httpRequest \
 //           acceptType: 'APPLICATION_JSON', \
 //           consoleLogResponseBody: true, \
