@@ -5,6 +5,8 @@ def call(String playbook) {
 //  def wibble = Semaphore.foo
   def wibble = new Semaphore()
   
+  wibble.Semapi(playbook)
+  
   echo "Hello, ${wibble.foo}"
 }
 
