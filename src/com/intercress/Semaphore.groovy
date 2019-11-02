@@ -6,6 +6,10 @@ import groovy.json.JsonOutput
 class Semaphore {
        
     static String foo = 'bar'
+       
+    static String httpRequest() {
+        httpRequest url: "http://localhost:3000/api/auth/login"
+    }
 
     static String Semapi(String[] password) {
        
