@@ -9,14 +9,13 @@ class Semaphore {
     static String foo = 'bar'
                   
     static String Semapi(String[] password) {
-           def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])
+        def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])
            
         def http = new HTTPBuilder( 'http://localhost:3000/api/auth/login/' )
 //        def postBody = [name: 'bob', title: 'construction worker'] // will be url-encoded
  
 //        http.post( path: '/', body: postBody,
 //           requestContentType: URLENC ) { resp ->
- }
            
 //       httpRequestCookie()
 //       httpRequestCookie(credentials)
