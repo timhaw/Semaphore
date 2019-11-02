@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 package com.intercress
 
-evaluate(new File("./.groovy"))
+evaluate(new File("./httpRequestCookie.groovy"))
 
 import groovy.json.JsonOutput
 
@@ -15,7 +15,9 @@ class Semaphore {
 
     static String Semapi(String[] password) {
        
-       def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])    
+       def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])
+        
+       def wibble = httpRequestCookie(credentials)
        
        def cookie = wibble()
 //       def cookie = httpRequest \
