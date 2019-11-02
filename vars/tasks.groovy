@@ -1,4 +1,4 @@
-import com.intercress
+import com.intercress.semaphore
 
 def call(String name = 'human') {
   echo "Hello, ${name}."
