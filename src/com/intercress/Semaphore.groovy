@@ -8,7 +8,7 @@ class Semaphore {
    
    //    def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])   
        static String foo = ${playbook}
-
+    }
    // refer to this in a pipeline using:
    //
    // import com.intercress.GlobalVars
