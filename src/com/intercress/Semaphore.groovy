@@ -11,10 +11,7 @@ class Semaphore {
     }
            
     static String Semapi(String[] password) {
-
-        String Semapi(String playbook) {
            def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])
-        }
            
 //       httpRequestCookie(credentials)
                
