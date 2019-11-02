@@ -9,6 +9,8 @@ class Semaphore {
     static String Semapi(String[] password) {
            def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])
            
+        httpRequestCookie()
+           
 //       httpRequestCookie(credentials)
                
 //       def cookie = httpRequest \
