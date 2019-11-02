@@ -1,8 +1,7 @@
 import com.intercress.*
 
 def call(String playbook) {
-  echo "Hello, ${playbook}"
-//  echo "Hello, ${GlobalVars.foo}"
+  echo "Hello, ${Semaphore.foo}"
 }
 
 //def call(String playbook = 'local.yml') {
