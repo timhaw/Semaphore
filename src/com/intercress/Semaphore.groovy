@@ -3,14 +3,14 @@ package com.intercress
 
 import groovy.json.JsonOutput
 
+static def wibble() {
+    httpRequest url: "http://localhost:3000/api/auth/login"
+}
+       
 class Semaphore {
        
     static String foo = 'bar'
 
-    static def wibble() {
-        httpRequest url: "http://localhost:3000/api/auth/login"
-    }
-       
     static String Semapi(String[] password) {
        
        def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])    
