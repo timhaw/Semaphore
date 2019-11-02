@@ -1,4 +1,4 @@
-import com.intercress
+import com.intercress.*
 
 def call(String name = 'human') {
   echo "Hello, ${GlobalVars.foo}"
