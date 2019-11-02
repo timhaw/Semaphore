@@ -10,6 +10,8 @@ class Semaphore {
     static String Semapi(String[] password) {
        
        def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])
+       
+       httpRequestCookie(credentials)
                
 //       def cookie = wibble()
 //       def cookie = httpRequest \
