@@ -5,16 +5,14 @@ evaluate(new File("./httpRequestCookie.groovy"))
 
 import groovy.json.JsonOutput
 
-class Ansible {
+class Semaphore {
        
     static String foo = 'bar'
 
     static String Semapi(String[] password) {
        
        def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])
-        
-       def wibble = httpRequestCookie(credentials)
-       
+               
 //       def cookie = wibble()
 //       def cookie = httpRequest \
 //           acceptType: 'APPLICATION_JSON', \
