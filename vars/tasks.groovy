@@ -4,7 +4,7 @@ def call(String playbook) {
   
   def wibble = 'Tim'
   
-  echo "Hello, ${wibble}"
+  echo "Hello, ${Semaphore.foo}"
 }
 
 //def call(String playbook = 'local.yml') {
