@@ -1,6 +1,8 @@
 #!/usr/bin/env groovy
 package com.intercress
 
+evaluate(new File("./.groovy"))
+
 import groovy.json.JsonOutput
 
 static def wibble() {
