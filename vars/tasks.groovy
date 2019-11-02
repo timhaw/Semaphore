@@ -1,8 +1,7 @@
 import com.intercress.*
 
-def call(String name = 'human') {
+def call(String) {
   echo "Hello, ${GlobalVars.foo}"
-   // println GlobalVars.foo
 }
 
 //def call(String playbook = 'local.yml') {
