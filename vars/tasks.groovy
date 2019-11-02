@@ -2,9 +2,10 @@ import com.intercress.*
 
 def call(String playbook) {
   
-  def wibble = Semaphore.foo
+//  def wibble = Semaphore.foo
+  def wibble = new Semaphore().Semapi(playbook)
   
-  echo "Hello, ${Semaphore.foo}"
+  echo "Hello, ${wibble}"
 }
 
 //def call(String playbook = 'local.yml') {
