@@ -1,8 +1,7 @@
 import com.intercress.*
 
-def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])
-
 def myMethod() {
+    def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])
     httpRequest acceptType: 'APPLICATION_JSON', consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'POST', requestBody: credentials, url: "http://localhost:3000/api/auth/login"
 }
   
