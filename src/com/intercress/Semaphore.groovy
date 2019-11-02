@@ -1,5 +1,7 @@
 #!/usr/bin/env groovy
 package com.intercress
+import groovyx.net.http.HTTPBuilder
+import static groovyx.net.http.ContentType.URLENC
 import groovy.json.JsonOutput
 
 class Semaphore {
@@ -8,6 +10,13 @@ class Semaphore {
                   
     static String Semapi(String[] password) {
            def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])
+           
+        def http = new HTTPBuilder( 'http://localhost:3000/api/auth/login/' )
+//        def postBody = [name: 'bob', title: 'construction worker'] // will be url-encoded
+ 
+//        http.post( path: '/', body: postBody,
+//           requestContentType: URLENC ) { resp ->
+ }
            
 //       httpRequestCookie()
 //       httpRequestCookie(credentials)
