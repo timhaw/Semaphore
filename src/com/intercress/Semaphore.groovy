@@ -11,7 +11,7 @@ class Semaphore {
        
        def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])    
        
-       call() {
+       def call() {
            httpRequest
        }
 //       def cookie = httpRequest \
