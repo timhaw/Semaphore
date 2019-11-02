@@ -8,7 +8,7 @@
 //  echo "Hello, ${retval}"
 //}
 
-def call(credentials) {
+def call(String credentials) {
 
     def cookie = httpRequest \
         acceptType: 'APPLICATION_JSON', \
