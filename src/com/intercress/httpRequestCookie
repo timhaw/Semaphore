@@ -1,4 +1,14 @@
-static String httpRequestCookie(String[] credentials) {
+// def call(String playbook) {
+  
+//  def wibble = Semaphore.foo
+//  def wibble = new Semaphore()
+  
+//  retval = wibble.Semapi(playbook)
+  
+//  echo "Hello, ${retval}"
+//}
+
+def call(credentials) {
 
     def cookie = httpRequest \
         acceptType: 'APPLICATION_JSON', \
