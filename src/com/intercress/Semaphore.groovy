@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 package com.intercress
-class GlobalVars {
+class Semaphore {
    static String foo = "bar"
 
    // refer to this in a pipeline using:
