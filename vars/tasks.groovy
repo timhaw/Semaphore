@@ -1,7 +1,7 @@
 import com.intercress.*
 
 def call(String playbook) {
-  echo "Hello, ${Semaphore.Semapi(String wibble = playbook)}"
+  echo "Hello, ${playbook}"
 }
 
 //def call(String playbook = 'local.yml') {
