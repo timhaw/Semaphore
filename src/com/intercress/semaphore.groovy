@@ -2,7 +2,7 @@
 package com.intercress
 import groovy.json.JsonOutput
 
-class semaphore {
+class Semaphore {
     def semapi(playbook) {
 
         def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])    
