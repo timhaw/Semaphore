@@ -1,6 +1,5 @@
 #!/usr/bin/env groovy
 package com.intercress
-evaluate(new File("../../httpRequestCookie.groovy"))
 import groovy.json.JsonOutput
 
 class Semaphore {
