@@ -19,7 +19,7 @@ class Semaphore {
        
 //       httpRequestCookie(credentials)
                
-//        def cookie = httpRequestCookie()
+        new Cookie().httpRequestCookie()
 //       def cookie = httpRequest \
 //           acceptType: 'APPLICATION_JSON', \
 //           consoleLogResponseBody: true, \
