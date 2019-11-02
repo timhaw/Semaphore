@@ -1,7 +1,7 @@
 import com.intercress
 
 def call(String name = 'human') {
-  echo "Hello, ${GlobalVars.foo}."
+  echo "Hello, ${GlobalVars.foo}"
    // println GlobalVars.foo
 }
 
