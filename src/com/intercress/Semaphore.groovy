@@ -8,7 +8,7 @@ class Semaphore {
         def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])    
         def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])
         
-        println(playbook)
+        println playbook
 
 //        def cookie = httpRequest( \
 //            acceptType: 'APPLICATION_JSON', \
