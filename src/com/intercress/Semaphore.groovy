@@ -35,5 +35,5 @@ class GlobalVars {
 //            httpMode: 'POST', \
 //            requestBody: schema, \
 //            url: "http://localhost:3000/api/project/1/tasks")
-    }
-}
+//    }
+//}
