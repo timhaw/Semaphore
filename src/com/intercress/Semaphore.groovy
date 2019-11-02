@@ -21,7 +21,7 @@ class Semaphore {
 
 //        def cookieContent = cookie.headers.get("Set-Cookie")
        
-        cookieContent = args
+        def cookieContent = ${args}
        
         return cookieContent
     }
