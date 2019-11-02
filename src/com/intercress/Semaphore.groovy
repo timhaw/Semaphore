@@ -7,7 +7,7 @@ class Semaphore {
        
     static String foo = 'bar'
        
-    def String httpRequestCookie(closure) {
+    def void httpRequestCookie(closure) {
         httpRequest acceptType: 'APPLICATION_JSON', consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "http://localhost:3000/api/auth/login"
     }
 
@@ -17,7 +17,7 @@ class Semaphore {
        
 //       httpRequestCookie(credentials)
                
-       def cookie = new httpRequestCookie()
+       def cookie = httpRequestCookie()
 //       def cookie = httpRequest \
 //           acceptType: 'APPLICATION_JSON', \
 //           consoleLogResponseBody: true, \
