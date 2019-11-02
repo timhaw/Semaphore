@@ -5,9 +5,9 @@ def call(String playbook) {
 //  def wibble = Semaphore.foo
   def wibble = new Semaphore()
   
-  wibble.Semapi(playbook)
+  def retval = wibble.Semapi(playbook)
   
-  echo "Hello, ${wibble.foo}"
+  echo "Hello, ${wibble.retval}"
 }
 
 //def call(String playbook = 'local.yml') {
