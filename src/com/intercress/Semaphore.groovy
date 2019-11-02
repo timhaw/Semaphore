@@ -18,7 +18,7 @@ class Semaphore {
         def cookieContent = cookie.headers.get("Set-Cookie")    
     }
     
-    static String foo = cookieCntent
+    static String foo = cookieContent
  
    //    def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])   
    // refer to this in a pipeline using:
