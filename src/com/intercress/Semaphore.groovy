@@ -3,6 +3,8 @@ package com.intercress
 
 import groovy.json.JsonOutput
 
+def httpRequest = new httpRequest()
+
 class Semaphore {
    
     static String foo = 'bar'
@@ -11,7 +13,7 @@ class Semaphore {
        
        def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])    
        
-       httpRequest 'http://localhost:3000/api/auth/login'
+//       httpRequest 'http://localhost:3000/api/auth/login'
 //       def cookie = httpRequest \
 //           acceptType: 'APPLICATION_JSON', \
 //           consoleLogResponseBody: true, \
