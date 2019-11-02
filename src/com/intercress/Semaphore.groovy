@@ -1,5 +1,5 @@
 #!/usr/bin/env groovy
-package com.intercress
+package com.intercress.Semaphore
 import groovy.json.JsonOutput
 
 class Semaphore {
@@ -9,9 +9,9 @@ class Semaphore {
         def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])
 
         def cookie = httpRequest( \
-            acceptType: 'APP_JSON', \
+            acceptType: 'APPLICATION_JSON', \
             consoleLogResponseBody: true, \
-            contentType: 'APP_JSON', \
+            contentType: 'APPLICATION_JSON', \
             httpMode: 'POST', \
             requestBody: credentials, \
             url: "http://localhost:3000/api/auth/login")
