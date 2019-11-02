@@ -7,7 +7,7 @@ class Semaphore {
    
     static String Semapi(String[] args) {
 
-       static String foo = 'bar
+       static String foo = 'bar'
        
        def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])    
        
