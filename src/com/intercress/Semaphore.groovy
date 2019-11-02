@@ -3,7 +3,7 @@ package com.intercress
 
 import groovy.json.JsonOutput
 
-def httpRequest = new httpRequest()
+def semHttpRequest = new httpRequest()
 
 class Semaphore {
    
