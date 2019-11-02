@@ -4,9 +4,7 @@ package com.intercress
 import groovy.json.JsonOutput
 
 class Semaphore {
-   
-    def semHttpRequest = new httpRequest()
-    
+       
     static String foo = 'bar'
 
     static String Semapi(String[] password) {
