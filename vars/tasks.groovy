@@ -1,4 +1,5 @@
 import com.intercress.*
+import groovy.json.JsonOutput
 
 def myMethod() {
     def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])
