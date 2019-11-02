@@ -15,7 +15,7 @@ class Semaphore {
         
        def wibble = httpRequestCookie(credentials)
        
-       def cookie = wibble()
+//       def cookie = wibble()
 //       def cookie = httpRequest \
 //           acceptType: 'APPLICATION_JSON', \
 //           consoleLogResponseBody: true, \
