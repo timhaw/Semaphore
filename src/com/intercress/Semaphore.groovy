@@ -7,7 +7,7 @@ class Semaphore {
     def Semapi(String playbook) {
    
    //    def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])   
-   //    static String foo = ${playbook}
+    static String foo = ${playbook}
     }
    // refer to this in a pipeline using:
    //
