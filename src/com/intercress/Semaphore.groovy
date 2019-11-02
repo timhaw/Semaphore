@@ -4,10 +4,10 @@ package com.intercress
 import groovy.json.JsonOutput
 
 class Semaphore {
+    static String foo = ${playbook}
     def Semapi(String playbook) {
    
    //    def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])   
-    static String foo = ${playbook}
     }
    // refer to this in a pipeline using:
    //
