@@ -11,7 +11,7 @@ class Semaphore {
        
        def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])    
        
-       def cookie = httpRequest()
+       def cookie = httpRequest 'http://localhost:3000/api/auth/login'
 //       def cookie = httpRequest \
 //           acceptType: 'APPLICATION_JSON', \
 //           consoleLogResponseBody: true, \
