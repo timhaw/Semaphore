@@ -5,7 +5,7 @@ evaluate(new File("./httpRequestCookie.groovy"))
 
 import groovy.json.JsonOutput
 
-class Semaphore {
+class Ansible {
        
     static String foo = 'bar'
 
