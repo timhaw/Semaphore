@@ -5,9 +5,9 @@ import groovy.json.JsonOutput
 
 class Semaphore {
    
-    static String Semapi(String[] args) {
+    static String foo = 'bar'
 
-       static String foo = 'bar'
+    static String Semapi(String[] args) {
        
        def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])    
        
@@ -21,8 +21,9 @@ class Semaphore {
 
         def cookieContent = cookie.headers.get("Set-Cookie")
        
-        return 'Tim'
     }
+   
+    return 'Tim'
     
  
    //    def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])   
