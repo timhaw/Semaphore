@@ -5,10 +5,6 @@ evaluate(new File("./httpRequestCookie.groovy"))
 
 import groovy.json.JsonOutput
 
-static def wibble() {
-    httpRequest url: "http://localhost:3000/api/auth/login"
-}
-       
 class Semaphore {
        
     static String foo = 'bar'
