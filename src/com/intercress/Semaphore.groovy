@@ -5,7 +5,7 @@ import groovy.json.JsonOutput
 
 class Semaphore {
     static String foo = ${playbook}
-    def Semapi(String playbook) {
+    def Semapi() {
    
    //    def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])   
     }
