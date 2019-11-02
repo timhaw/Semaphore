@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 package com.intercress
-import groovyx.net.http.HTTPBuilder
-import static groovyx.net.http.ContentType.URLENC
+// import groovyx.net.http.HTTPBuilder
+// import static groovyx.net.http.ContentType.URLENC
 import groovy.json.JsonOutput
 
 class Semaphore {
