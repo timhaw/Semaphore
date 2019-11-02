@@ -1,4 +1,5 @@
-package com.intercress.semaphore
+#!/usr/bin/env groovy
+package com.intercress
 import groovy.json.JsonOutput
 
 class semaphore {
