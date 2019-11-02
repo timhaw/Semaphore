@@ -7,13 +7,14 @@ class Semaphore {
        
     static String foo = 'bar'
 
+    static def wibble() {
+        httpRequest url: "http://localhost:3000/api/auth/login"
+    }
+       
     static String Semapi(String[] password) {
        
        def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])    
        
-       def wibble() {
-           httpRequest
-       }
 //       def cookie = httpRequest \
 //           acceptType: 'APPLICATION_JSON', \
 //           consoleLogResponseBody: true, \
