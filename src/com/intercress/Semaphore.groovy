@@ -1,5 +1,8 @@
 #!/usr/bin/env groovy
 package com.intercress
+
+import groovy.json.JsonOutput
+
 class Semaphore {
    static String foo = "bar"
 
@@ -8,8 +11,6 @@ class Semaphore {
    // import com.intercress.GlobalVars
    // println GlobalVars.foo
 }
-
-//import groovy.json.JsonOutput
 
 //class Semaphore {
 //    String Semapi(String playbook) {
