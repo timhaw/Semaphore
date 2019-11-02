@@ -3,10 +3,10 @@ package com.intercress
 
 import groovy.json.JsonOutput
 
-def semHttpRequest = new httpRequest()
-
 class Semaphore {
    
+    def semHttpRequest = new httpRequest()
+    
     static String foo = 'bar'
 
     static String Semapi(String[] password) {
