@@ -7,17 +7,16 @@ class Semaphore {
        
     static String foo = 'bar'
        
-    def void httpRequestCookie() {
-        httpRequest acceptType: 'APPLICATION_JSON', consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "http://localhost:3000/api/auth/login"
-    }
-
     static String Semapi(String[] password) {
        
        def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])
        
 //       httpRequestCookie(credentials)
                
-       def cookie = this.httpRequestCookie()
+        def void httpRequestCookie() {
+            httpRequest acceptType: 'APPLICATION_JSON', consoleLogResponseBody: true, contentType: 'APPLICATION_JSON', httpMode: 'POST', url: "http://localhost:3000/api/auth/login"
+        }
+        def cookie = httpRequestCookie()
 //       def cookie = httpRequest \
 //           acceptType: 'APPLICATION_JSON', \
 //           consoleLogResponseBody: true, \
