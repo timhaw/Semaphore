@@ -1,14 +1,21 @@
 #!/usr/bin/env groovy
 package com.intercress
-import groovy.json.JsonOutput
+class GlobalVars {
+   static String foo = "bar"
 
-class Semaphore {
-    def String Semapi(String playbook) {
+   // refer to this in a pipeline using:
+   //
+   // import com.intercress.GlobalVars
+   // println GlobalVars.foo
+}
 
-       return 'Hello' + playbook
+//import groovy.json.JsonOutput
+
+//class Semaphore {
+//    String Semapi(String playbook) {
         
-       def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])    
-        def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])   
+//       def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])    
+//       def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])   
 
 //        def cookie = httpRequest( \
 //            acceptType: 'APPLICATION_JSON', \
