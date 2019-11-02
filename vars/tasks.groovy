@@ -1,5 +1,5 @@
-import com.intercress.semaphore
+import com.intercress.Semaphore
 
 def call(String playbook = 'local.yml') {
-    new semaphore().semapi(playbook)
+    new Semaphore().semapi(playbook)
 }
