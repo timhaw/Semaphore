@@ -76,7 +76,7 @@ def call(String playbook) {
             }
         }
     
-        JsonSlurperClassic slurper = new JsonSlurper()
+        JsonSlurperClassic slurper = new JsonSlurperClassic()
         stage ('project') {
             projects = httpGetProjects(cookie)
             Map parsedJson = slurper.parseText(projects)
