@@ -85,7 +85,7 @@ def call(String playbook) {
             projects = httpGetProjects(cookie)
         }
     
-        def String project = parseJson.parsedJson(projects)
+        def String project = parseJson().parsedJson(projects)
         
         stage ('template') {
             templates = httpGetTemplates(cookie)
