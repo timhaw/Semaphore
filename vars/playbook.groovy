@@ -78,7 +78,7 @@ def call(String playbook) {
         stage ('project') {
             projects = httpGetProjects(cookie)
 //            jsonText = readJSON text: projects
-              jsonText = '[id:1, name:Ansible, created:2019-10-29T17:03:53Z, alert:false, alert_chat:], [id:2, name:Test, created:2019-11-03T10:20:26Z, alert:false, alert_chat:]'
+              jsonText = '[1: [id:1, name:Ansible, created:2019-10-29T17:03:53Z, alert:false, alert_chat:], 2: [id:2, name:Test, created:2019-11-03T10:20:26Z, alert:false, alert_chat:]]'
             project = jsonText.find { it.value.name == 'Ansible' }
 //            id = project.value.id
         }
