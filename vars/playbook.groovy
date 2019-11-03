@@ -36,11 +36,12 @@ def call(String playbook) {
     node {
         def String cookie
         stage ('authenticate') {
-            withCredentials([usernamePassword( \
-                credentialsId: 'semaphore', \
-                usernameVariable: 'username', \
-                passwordVariable: 'password')]) {
-                    cookie = httpRequestCookie(username, password)[0]
+            def credentials = [:]
+            credentials.credentialsId: 'semaphore', \
+            credentials.usernameVariable: 'username', \
+            credentials.passwordVariable: 'password')]) {
+            withCredentials([usernamePassword(credentials)]) {
+                cookie = httpRequestCookie(username, password)[0]
             }
         }
     
