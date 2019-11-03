@@ -80,7 +80,8 @@ def call(String playbook) {
             projects = '{"name":"katone","age":5}'
             jsonText = readJSON text: projects
 //            project = jsonText.find { it.value.name == 'Ansible' }
-            project = jsonText.find { it.value.name == 'katone' }     // No such property: name for class: java.lang.String
+//            project = jsonText.find { it.value.name == 'katone' }     // No such property: name for class: java.lang.String
+            project = jsonText.find { it.value == 'name' }?.value
 //            id = project.value.id
         }
     
