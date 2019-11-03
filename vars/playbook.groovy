@@ -77,6 +77,7 @@ def call(String playbook) {
     
         stage ('project') {
             projects = httpGetProjects(cookie)
+            def jsonText = readJSON text: project
         }
     
         stage ('template') {
@@ -87,6 +88,6 @@ def call(String playbook) {
             status = httpSendTask(playbook, cookie)
         }
     
-        echo "Hello, ${status}"
+        echo "Hello, ${jsonText}"
     }
 }
