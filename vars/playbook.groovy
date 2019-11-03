@@ -62,7 +62,7 @@ String httpSendTask(String playbook, String cookie) {
     return response
 }
 
-def slurpJSON(String thetext) {
+String slurpJSON(String thetext) {
     return new groovy.json.JsonSlurper().parseText(thetext);
 }
 
