@@ -78,9 +78,9 @@ def call(String playbook) {
         stage ('project') {
 //            projects = httpGetProjects(cookie)
             projects = '{"name":"katone","age":5}'
-            jsonText = readJSON text: projects
+//            jsonText = readJSON text: projects
 //            project = jsonText.find { it.value.name == 'Ansible' }
-            project = jsonText.find { it.value.name == 'katone' }
+//            project = jsonText.find { it.value.name == 'katone' }
 //            id = project.value.id
         }
     
@@ -92,6 +92,6 @@ def call(String playbook) {
             status = httpSendTask(playbook, cookie)
         }
     
-        echo "Hello, ${project}"
+        echo "Hello, ${projects}"
     }
 }
