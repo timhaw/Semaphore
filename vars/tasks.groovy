@@ -14,8 +14,8 @@ String httpRequestCookie() {
     return cookieContent
 }
 
-String httpSendTask(String cookie) {
-    def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: 'local.yml', environment: ''])
+String httpSendTask(String playbook, String cookie) {
+    def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])
     def response = httpRequest \
         acceptType: 'APPLICATION_JSON', \
         consoleLogResponseBody: true, \
@@ -30,7 +30,7 @@ String httpSendTask(String cookie) {
 def call(String playbook) {
     
     cookie = httpRequestCookie()[0]
-    retval = httpSendTask(cookie)
+    retval = httpSendTask(playbook, cookie)
   
     echo "Hello, ${retval}"
 }
