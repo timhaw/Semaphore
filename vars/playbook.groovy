@@ -3,13 +3,14 @@ import groovy.json.JsonOutput
 
 String httpRequestCookie(String username, String password) {
     def credentials = JsonOutput.toJson([auth: username, password: password])
-    def cookie = httpRequest \
-        acceptType: 'APPLICATION_JSON', \
-        consoleLogResponseBody: true, \
-        contentType: 'APPLICATION_JSON', \
-        httpMode: 'POST', \
-        requestBody: credentials, \
-        url: 'http://localhost:3000/api/auth/login'
+    def requestParams = [:]
+    requestParams.acceptType = 'APPLICATION_JSON'
+    requestParams.consoleLogResponseBody = true
+    requestParams.contentType = 'APPLICATION_JSON'
+    requestParams.httpMode = 'POST'
+    requestParams.requestBody = credentials
+    requestParams.url = 'http://localhost:3000/api/auth/login'
+    def cookie = httpRequest requestParams
     def cookieContent = cookie.headers.get("Set-Cookie")    
     return cookieContent
 }
