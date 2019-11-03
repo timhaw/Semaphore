@@ -77,7 +77,7 @@ def call(String playbook) {
     
         stage ('project') {
             projects = httpGetProjects(cookie)
-            def jsonText = readJSON text: '{"name":"katone","age":5}'
+            jsonText = readJSON text: '{"name":"katone","age":5}'
         }
     
         stage ('template') {
