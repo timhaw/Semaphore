@@ -63,7 +63,6 @@ String httpSendTask(String playbook, String cookie) {
     return response
 }
 
-@NonCPS
 def call(String playbook) {
     node {
         def String cookie
@@ -77,6 +76,7 @@ def call(String playbook) {
             }
         }
     
+        @NonCPS
         JsonSlurperClassic slurper = new JsonSlurperClassic()
         stage ('project') {
             projects = httpGetProjects(cookie)
