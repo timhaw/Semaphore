@@ -88,6 +88,6 @@ def call(String playbook) {
             status = httpSendTask(playbook, cookie)
         }
     
-        echo "Hello, ${jsonText}"
+        echo "Hello, ${projects}"
     }
 }
