@@ -27,7 +27,6 @@ String httpSendTask(String cookie) {
     return response
 }
 
-  
 def call(String playbook) {
     
     cookie = httpRequestCookie()[0]
