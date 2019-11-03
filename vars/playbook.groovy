@@ -64,7 +64,8 @@ String httpSendTask(String playbook, String cookie) {
 }
 
 String parseJson(String thetext) {
-    return new JsonSlurper().parseText(thetext)
+    def parser = new JsonSlurper()
+    return parser.parseText(thetext)
 }
 
 def call(String playbook) {
