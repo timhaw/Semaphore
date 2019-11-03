@@ -1,8 +1,8 @@
 import com.intercress.*
 import groovy.json.JsonOutput
 
-String httpRequestCookie() {
-    def credentials = JsonOutput.toJson([auth: 'admin', password: 'admin'])
+String httpRequestCookie(String username, String password) {
+    def credentials = JsonOutput.toJson([auth: username, password: password])
     def cookie = httpRequest \
         acceptType: 'APPLICATION_JSON', \
         consoleLogResponseBody: true, \
@@ -27,9 +27,9 @@ String httpSendTask(String playbook, String cookie) {
     return response
 }
 
-def call(String playbook) {
+def call(String username, String password, String playbook) {
     
-    cookie = httpRequestCookie()[0]
+    cookie = httpRequestCookie(username, password)[0]
     retval = httpSendTask(playbook, cookie)
   
     echo "Hello, ${retval}"
