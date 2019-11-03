@@ -87,6 +87,6 @@ def call(String playbook) {
             status = httpSendTask(playbook, cookie)
         }
     
-        echo "Hello, ${id}"
+        echo "Hello, ${status}"
     }
 }
