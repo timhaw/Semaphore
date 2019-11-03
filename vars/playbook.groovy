@@ -1,5 +1,5 @@
 import com.intercress.*
-import groovy.json.JsonSlurper
+import groovy.json.JsonSlurperClassic
 import groovy.json.JsonOutput
 
 String httpRequestCookie(String username, String password) {
@@ -76,7 +76,7 @@ def call(String playbook) {
             }
         }
     
-        JsonSlurper slurper = new JsonSlurper()
+        JsonSlurperClassic slurper = new JsonSlurper()
         stage ('project') {
             projects = httpGetProjects(cookie)
             Map parsedJson = slurper.parseText(projects)
