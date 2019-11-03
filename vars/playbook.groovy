@@ -15,8 +15,7 @@ String httpRequestCookie(String username, String password) {
     return cookieContent
 }
 
-String httpGetProjects(String project, String playbook, String cookie) {
-    def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])
+String httpGetProjects(String cookie) {
     def cookieHeader = [:]
     cookieHeader.name = 'Cookie'
     cookieHeader.value = cookie
@@ -25,15 +24,13 @@ String httpGetProjects(String project, String playbook, String cookie) {
     requestParams.consoleLogResponseBody = true
     requestParams.contentType = 'APPLICATION_JSON'
     requestParams.customHeaders = [cookieHeader]
-    requestParams.httpMode = 'POST'
-    requestParams.requestBody = schema
-    requestParams.url = 'http://localhost:3000/api/project/1/tasks'
+    requestParams.httpMode = 'GET'
+    requestParams.url = 'http://localhost:3000/api/projects'
     def response = httpRequest requestParams
     return response
 }
 
-String httpGetTemplates(String project, String playbook, String cookie) {
-    def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])
+String httpGetTemplates(String cookie) {
     def cookieHeader = [:]
     cookieHeader.name = 'Cookie'
     cookieHeader.value = cookie
@@ -42,9 +39,8 @@ String httpGetTemplates(String project, String playbook, String cookie) {
     requestParams.consoleLogResponseBody = true
     requestParams.contentType = 'APPLICATION_JSON'
     requestParams.customHeaders = [cookieHeader]
-    requestParams.httpMode = 'POST'
-    requestParams.requestBody = schema
-    requestParams.url = 'http://localhost:3000/api/project/1/tasks'
+    requestParams.httpMode = 'GET'
+    requestParams.url = 'http://localhost:3000/api/project/1/templates?sort=alias&order=asc'
     def response = httpRequest requestParams
     return response
 }
@@ -79,10 +75,18 @@ def call(String project, String playbook) {
             }
         }
     
-        stage ('playbook') {
-            retval = httpSendTask(playbook, cookie)
+        stage ('project') {
+            projects = httpGetProjects(cookie)
         }
     
-        echo "Hello, ${retval}"
+        stage ('template') {
+            templates = httpGetTemplates(cookie)
+        }
+    
+        stage ('playbook') {
+            status = httpSendTask(playbook, cookie)
+        }
+    
+        echo "Hello, ${projects}"
     }
 }
