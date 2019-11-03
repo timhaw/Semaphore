@@ -1,5 +1,6 @@
 import com.intercress.*
 import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
 
 String httpRequestCookie(String username, String password) {
     def credentials = JsonOutput.toJson([auth: username, password: password])
@@ -62,8 +63,8 @@ String httpSendTask(String playbook, String cookie) {
     return response
 }
 
-String slurpJSON(String thetext) {
-    return new groovy.json.JsonSlurper().parseText(thetext);
+String parseJson(String thetext) {
+    return new JsonSlurper().parseText(thetext)
 }
 
 def call(String playbook) {
@@ -81,7 +82,7 @@ def call(String playbook) {
     
         stage ('project') {
             projects = httpGetProjects(cookie)
-            project = slurpJSON(projects)
+            project = parseJson(projects)
         }
     
         stage ('template') {
