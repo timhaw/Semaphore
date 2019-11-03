@@ -1,5 +1,5 @@
 import com.intercress.*
-//evaluate(new File("./httpRequestCookie.groovy"))
+import httpRequestCookie
 
 def call(String playbook) {
   
@@ -7,7 +7,7 @@ def call(String playbook) {
   def wibble = new Semaphore()
   
   // retval = wibble.Semapi(playbook)
-  retval = httpRequestCookie()
+  retval = new httpRequestCookie().request()
   
   echo "Hello, ${retval}"
 }
