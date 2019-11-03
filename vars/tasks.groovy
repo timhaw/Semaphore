@@ -1,5 +1,5 @@
 import com.intercress.*
-import static httpRequestCookie
+def common = load "httpRequestCookie"
 
 def call(String playbook) {
   
@@ -7,8 +7,7 @@ def call(String playbook) {
   def wibble = new Semaphore()
   
   // retval = wibble.Semapi(playbook)
-  MyNewRequest = new httpRequestCookie()
-  retval = MyNewRequest.MyRequest()
+  retval = common.httpRequestCookie()
   
   echo "Hello, ${retval}"
 }
