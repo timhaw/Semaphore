@@ -23,7 +23,7 @@ String httpSendTask(String playbook, String cookie) {
     requestParams.contentType = 'APPLICATION_JSON'
     requestParams.customHeaders = [[name: 'Cookie', value: cookie]]
     requestParams.httpMode = 'POST'
-    requestParams.requestBody = credentials
+    requestParams.requestBody = schema
     requestParams.url = 'http://localhost:3000/api/auth/login'
     def response = httpRequest requestParams
     return response
