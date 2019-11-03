@@ -2,9 +2,9 @@ import com.intercress.*
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 
-String parseJson(String thetext) {
-    def parser = new JsonSlurper()
-    return parser.parseText(thetext)
+class parseJson() {
+    def String parser = new JsonSlurper()
+    def parsedJson = parser.parseText(thetext)
 }
 
 String httpRequestCookie(String username, String password) {
@@ -85,7 +85,7 @@ def call(String playbook) {
             projects = httpGetProjects(cookie)
         }
     
-        def String project = parseJson(projects)
+        def String project = parseJson.parsedJson(projects)
         
         stage ('template') {
             templates = httpGetTemplates(cookie)
