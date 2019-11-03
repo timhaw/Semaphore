@@ -77,6 +77,8 @@ def call(String playbook) {
     
         stage ('project') {
             projects = httpGetProjects(cookie)
+            def project = projects.find {projects.value.name == 'Ansible'}
+            def id = project.value.id
         }
     
         stage ('template') {
