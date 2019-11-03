@@ -62,7 +62,7 @@ String httpSendTask(String project, String playbook, String cookie) {
     return response
 }
 
-def call(String project, String playbook) {
+def call(String playbook) {
     node {
         def String cookie
         stage ('authenticate') {
