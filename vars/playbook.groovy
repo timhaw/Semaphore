@@ -28,18 +28,20 @@ String httpSendTask(String playbook, String cookie) {
 }
 
 def call(String playbook) {
-    stage ('authenticate') {
-        withCredentials([usernamePassword( \
-            credentialsId: 'semaphore', \
-            usernameVariable: 'username', \
-            passwordVariable: 'password')]) {
-                def cookie = httpRequestCookie(username, password)[0]
+    node {
+        stage ('authenticate') {
+            withCredentials([usernamePassword( \
+                credentialsId: 'semaphore', \
+                usernameVariable: 'username', \
+                passwordVariable: 'password')]) {
+                    def cookie = httpRequestCookie(username, password)[0]
+            }
         }
-    }
     
-    stage ('playbook') {
-        retval = httpSendTask(playbook, cookie)
-    }
+        stage ('playbook') {
+            retval = httpSendTask(playbook, cookie)
+        }
     
-    echo "Hello, ${retval}"
+        echo "Hello, ${retval}"
+    }
 }
