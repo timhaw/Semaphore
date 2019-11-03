@@ -13,19 +13,25 @@ String httpRequestCookie() {
     def cookieContent = cookie.headers.get("Set-Cookie")    
     return cookieContent
 }
-  
-def call(String playbook) {
-  
-  
-  //  def wibble = Semaphore.foo
-  def wibble = new Semaphore()
-  
-  // retval = wibble.Semapi(playbook)
-  retval = httpRequestCookie()
-  
-  echo "Hello, ${retval}"
+
+String httpSendTask(String cookie) {
+    def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: 'local.yml', environment: ''])
+    def response = httpRequest \
+        acceptType: 'APPLICATION_JSON', \
+        consoleLogResponseBody: true, \
+        contentType: 'APPLICATION_JSON', \
+        customHeaders: [[name: 'Cookie', value: cookie]], \
+        httpMode: 'POST', \
+        requestBody: schema, \
+        url: 'http://localhost:3000/api/project/1/tasks'
+    return response
 }
 
-//def call(String playbook = 'local.yml') {
-//    echo ${playbook}
-//}
+cookie = httpRequestCookie()[0]
+  
+def call(String playbook) {
+    
+    retval = httpSendTask()
+  
+    echo "Hello, ${retval}"
+}
