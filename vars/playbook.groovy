@@ -32,7 +32,7 @@ String httpSendTask(String playbook, String cookie) {
     return response
 }
 
-def call(String playbook) {
+def call(String project, String playbook) {
     node {
         def String cookie
         stage ('authenticate') {
