@@ -81,7 +81,7 @@ def call(String playbook) {
     
         stage ('project') {
             projects = httpGetProjects(cookie)
-            project = slurpJSON(projects);
+            project = slurpJSON(projects)
         }
     
         stage ('template') {
