@@ -24,7 +24,7 @@ String httpSendTask(String playbook, String cookie) {
     requestParams.acceptType = 'APPLICATION_JSON'
     requestParams.consoleLogResponseBody = true
     requestParams.contentType = 'APPLICATION_JSON'
-    requestParams.customHeaders = cookieHeader
+    requestParams.customHeaders = [cookieHeader]
     requestParams.httpMode = 'POST'
     requestParams.requestBody = schema
     requestParams.url = 'http://localhost:3000/api/project/1/tasks'
