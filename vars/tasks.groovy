@@ -33,7 +33,6 @@ def call(String username, String password, String playbook) {
         credentialsId: 'semaphore', usernameVariable: 'username', passwordVariable: 'password')]) {
         cookie = httpRequestCookie(username, password)[0]
         retval = httpSendTask(playbook, cookie)
-        }
     }
     
     echo "Hello, ${retval}"
