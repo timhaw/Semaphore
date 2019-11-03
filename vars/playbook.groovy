@@ -62,6 +62,10 @@ String httpSendTask(String playbook, String cookie) {
     return response
 }
 
+def slurpJSON() {
+    return new groovy.json.JsonSlurper().parseText(thetext);
+}
+
 def call(String playbook) {
     node {
         def String cookie
@@ -77,6 +81,7 @@ def call(String playbook) {
     
         stage ('project') {
             projects = httpGetProjects(cookie)
+            def object = slurpJSON(projects);
         }
     
         stage ('template') {
