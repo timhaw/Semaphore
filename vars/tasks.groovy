@@ -2,12 +2,11 @@ import com.intercress.*
   
 def call(String playbook) {
   
-  
   //  def wibble = Semaphore.foo
   def wibble = new Semaphore()
   
   // retval = wibble.Semapi(playbook)
-  retval = myMethod()
+  retval = httpRequestCookie()
   
   echo "Hello, ${retval}"
 }
