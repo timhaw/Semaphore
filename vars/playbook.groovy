@@ -37,9 +37,9 @@ def call(String playbook) {
         def String cookie
         stage ('authenticate') {
             def credentials = [:]
-            credentials.credentialsId: 'semaphore', \
-            credentials.usernameVariable: 'username', \
-            credentials.passwordVariable: 'password')]) {
+            credentials.credentialsId = 'semaphore',
+            credentials.usernameVariable = 'username',
+            credentials.passwordVariable = 'password'
             withCredentials([usernamePassword(credentials)]) {
                 cookie = httpRequestCookie(username, password)[0]
             }
