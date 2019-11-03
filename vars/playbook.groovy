@@ -26,7 +26,7 @@ String httpGetProjects(String cookie) {
     requestParams.customHeaders = [cookieHeader]
     requestParams.httpMode = 'GET'
     requestParams.url = 'http://localhost:3000/api/projects'
-//    def response = httpRequest requestParams
+    def response = httpRequest requestParams
     return response
 }
 
@@ -41,7 +41,7 @@ String httpGetTemplates(String cookie) {
     requestParams.customHeaders = [cookieHeader]
     requestParams.httpMode = 'GET'
     requestParams.url = 'http://localhost:3000/api/project/1/templates?sort=alias&order=asc'
-//    def response = httpRequest requestParams
+    def response = httpRequest requestParams
     return response
 }
 
