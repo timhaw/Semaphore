@@ -29,7 +29,7 @@ String httpSendTask(String playbook, String cookie) {
 
 def call(String playbook) {
     node {
-        def cookie
+        def String cookie
         stage ('authenticate') {
             withCredentials([usernamePassword( \
                 credentialsId: 'semaphore', \
