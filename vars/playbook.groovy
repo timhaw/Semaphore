@@ -29,12 +29,13 @@ String httpSendTask(String playbook, String cookie) {
 
 def call(String playbook) {
     node {
+        def cookie
         stage ('authenticate') {
             withCredentials([usernamePassword( \
                 credentialsId: 'semaphore', \
                 usernameVariable: 'username', \
                 passwordVariable: 'password')]) {
-                    def cookie = httpRequestCookie(username, password)[0]
+                    cookie = httpRequestCookie(username, password)[0]
             }
         }
     
