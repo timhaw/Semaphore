@@ -2,6 +2,11 @@ import com.intercress.*
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 
+String parseJson(String thetext) {
+    def parser = new JsonSlurper()
+    return parser.parseText(thetext)
+}
+
 String httpRequestCookie(String username, String password) {
     def credentials = JsonOutput.toJson([auth: username, password: password])
     def requestParams = [:]
@@ -61,11 +66,6 @@ String httpSendTask(String playbook, String cookie) {
     requestParams.url = 'http://localhost:3000/api/project/1/tasks'
     def response = httpRequest requestParams
     return response
-}
-
-String parseJson(String thetext) {
-    def parser = new JsonSlurper()
-    return parser.parseText(thetext)
 }
 
 def call(String playbook) {
