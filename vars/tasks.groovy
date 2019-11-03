@@ -2,7 +2,7 @@ import com.intercress.*
 
 def call(String playbook) {
   
-    def common = load "httpRequestCookie"
+    def common = load "./httpRequestCookie"
     //  def wibble = Semaphore.foo
     def wibble = new Semaphore()
   
