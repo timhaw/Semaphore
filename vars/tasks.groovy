@@ -7,7 +7,8 @@ def call(String playbook) {
   def wibble = new Semaphore()
   
   // retval = wibble.Semapi(playbook)
-  retval = new httpRequestCookie().request()
+  MyNewRequest = new httpRequestCookie()
+  retval = MyNewRequest.MyRequest()
   
   echo "Hello, ${retval}"
 }
