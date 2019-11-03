@@ -1,5 +1,4 @@
 import com.intercress.*
-import groovy.json.JsonSlurperClassic
 import groovy.json.JsonOutput
 
 String httpRequestCookie(String username, String password) {
@@ -76,13 +75,8 @@ def call(String playbook) {
             }
         }
     
-        @NonCPS
-        JsonSlurperClassic slurper = new JsonSlurperClassic()
         stage ('project') {
             projects = httpGetProjects(cookie)
-            Map parsedJson = slurper.parseText(projects)
-            def project = parsedJson.find { it.value.name == 'Ansible' }
-            def id = project.value.id
         }
     
         stage ('template') {
