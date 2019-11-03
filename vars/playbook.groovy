@@ -27,7 +27,7 @@ String httpGetProjects(String cookie) {
     requestParams.httpMode = 'GET'
     requestParams.url = 'http://localhost:3000/api/projects'
     def response = httpRequest requestParams
-    return response
+    return response.content
 }
 
 String httpGetTemplates(String cookie) {
@@ -42,7 +42,7 @@ String httpGetTemplates(String cookie) {
     requestParams.httpMode = 'GET'
     requestParams.url = 'http://localhost:3000/api/project/1/templates?sort=alias&order=asc'
     def response = httpRequest requestParams
-    return response
+    return response.content
 }
 
 String httpSendTask(String playbook, String cookie) {
