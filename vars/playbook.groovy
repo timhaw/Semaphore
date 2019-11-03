@@ -17,6 +17,7 @@ String httpRequestCookie(String username, String password) {
 
 String httpSendTask(String playbook, String cookie) {
     def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])
+    def requestParams = [:]
     requestParams.acceptType = 'APPLICATION_JSON'
     requestParams.consoleLogResponseBody = true
     requestParams.contentType = 'APPLICATION_JSON'
