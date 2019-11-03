@@ -1,5 +1,5 @@
 import com.intercress.*
-import httpRequestCookie
+import static httpRequestCookie
 
 def call(String playbook) {
   
