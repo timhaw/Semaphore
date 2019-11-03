@@ -63,6 +63,7 @@ String httpSendTask(String playbook, String cookie) {
     return response
 }
 
+@NonCPS
 def call(String playbook) {
     node {
         def String cookie
