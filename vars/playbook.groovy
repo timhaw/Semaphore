@@ -77,7 +77,7 @@ def call(String playbook) {
     
         stage ('project') {
             projects = httpGetProjects(cookie)
-            def jsonText = readJSON text: projects
+            def jsonText = readJSON text: 'projects'
         }
     
         stage ('template') {
