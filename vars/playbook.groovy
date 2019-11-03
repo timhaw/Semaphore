@@ -2,7 +2,7 @@ import com.intercress.*
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 
-class parseJson() {
+class parseJson {
     def String parser = new JsonSlurper()
     def parsedJson = parser.parseText(thetext)
 }
