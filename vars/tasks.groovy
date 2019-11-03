@@ -29,8 +29,12 @@ String httpSendTask(String playbook, String cookie) {
 
 def call(String username, String password, String playbook) {
     
-    cookie = httpRequestCookie(username, password)[0]
-    retval = httpSendTask(playbook, cookie)
-  
+    withCredentials([usernamePassword( \
+        credentialsId: 'semaphore', usernameVariable: 'username', passwordVariable: 'password')]) {
+        cookie = httpRequestCookie(username, password)[0]
+        retval = httpSendTask(playbook, cookie)
+        }
+    }
+    
     echo "Hello, ${retval}"
 }
