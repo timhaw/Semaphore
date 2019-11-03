@@ -20,7 +20,7 @@ String httpSendTask(String cookie) {
         acceptType: 'APPLICATION_JSON', \
         consoleLogResponseBody: true, \
         contentType: 'APPLICATION_JSON', \
-        customHeaders: [[name: 'Cookie', value: cookie[0]]], \
+        customHeaders: [[name: 'Cookie', value: cookie]], \
         httpMode: 'POST', \
         requestBody: schema, \
         url: 'http://localhost:3000/api/project/1/tasks'
@@ -30,7 +30,7 @@ String httpSendTask(String cookie) {
   
 def call(String playbook) {
     
-    cookie = httpRequestCookie()
+    cookie = httpRequestCookie()[0]
     retval = httpSendTask(cookie)
   
     echo "Hello, ${retval}"
