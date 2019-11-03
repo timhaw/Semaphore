@@ -27,7 +27,7 @@ String httpSendTask(String playbook, String cookie) {
     return response
 }
 
-def call(String username, String password, String playbook) {
+def call(String playbook) {
     
     withCredentials([usernamePassword( \
         credentialsId: 'semaphore', usernameVariable: 'username', passwordVariable: 'password')]) {
