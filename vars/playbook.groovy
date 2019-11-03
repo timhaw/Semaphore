@@ -82,7 +82,7 @@ def call(String playbook) {
 //            project = jsonText.find { it.value.name == 'Ansible' }
 //            project = jsonText.find { it.value.name == 'katone' }     // No such property: name for class: java.lang.String
 //            assertTrue(map.find{it.value == "New York"}.key == "city")
-            assertTrue(jsonText.find { it.value == "local.yml"}.key == "playbook")
+//            assertTrue(jsonText.find { it.value == "local.yml"}.key == "playbook")
 //            project = jsonText.find { it.key == 'playbook' }
 //            id = project.value.id
         }
