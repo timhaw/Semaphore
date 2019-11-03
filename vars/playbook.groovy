@@ -17,11 +17,14 @@ String httpRequestCookie(String username, String password) {
 
 String httpSendTask(String playbook, String cookie) {
     def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])
+    def cookieHeader = [:]
+    cookieHeader.name = 'Cookie'
+    cookieHeader.value = cookie
     def requestParams = [:]
     requestParams.acceptType = 'APPLICATION_JSON'
     requestParams.consoleLogResponseBody = true
     requestParams.contentType = 'APPLICATION_JSON'
-    requestParams.customHeaders = [[name: 'Cookie', value: cookie]]
+    requestParams.customHeaders = cookieHeader
     requestParams.httpMode = 'POST'
     requestParams.requestBody = schema
     requestParams.url = 'http://localhost:3000/api/project/1/tasks'
