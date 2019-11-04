@@ -151,7 +151,7 @@ class Semaphore {
     /**
      * Parse the JSON, object or array
      */
-    def parseJson(String json) {
+    static String parseJson(String json) {
         def start = json[0]
         if (start == '[') {
             return parseArray(json)
