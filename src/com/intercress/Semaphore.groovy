@@ -162,8 +162,6 @@ class Semaphore {
         }
     }
 
-    // Test code
-    def String project = parseJson('{"abdef":["Jim","Tom","Sam",["XYZ","ABC"]],{"namek":["adbc","cdef"]}}')
        
     static String foo = 'bar'
        
@@ -186,6 +184,9 @@ class Semaphore {
 //            assertTrue(jsonText.find { it.value == "local.yml"}.key == "playbook")
 //            project = jsonText.find { it.key == 'playbook' }
 //            id = project.value.id
+           
+        // Test code
+        def project = parseJson('{"abdef":["Jim","Tom","Sam",["XYZ","ABC"]],{"namek":["adbc","cdef"]}}')
            
         return project
     }
