@@ -65,6 +65,9 @@ String httpSendTask(String playbook, String cookie) {
 def call(String name) {
     node {
         def String cookie
+        def String project
+        def String template
+        
         stage ('authenticate') {
             def credentials = [:]
             credentials.credentialsId = 'semaphore'
@@ -82,6 +85,7 @@ def call(String name) {
     
         stage ('template') {
             templates = httpGetTemplates(cookie)
+            template = Semaphore.FindTemplate(templates, project)
         }
     
         stage ('playbook') {
