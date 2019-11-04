@@ -6,8 +6,6 @@ class Semaphore {
        
     static String foo = 'bar'
        
-    static String FindProject(String projects, String playbook) {
-           
    /**
     * Get the nearest object or array end
     */
@@ -166,6 +164,8 @@ class Semaphore {
         }
     }
 
+    static String FindProject(String projects, String playbook) {
+           
         def people = [1: [name:'Bob', age: 32, gender: 'M'], 2: [name:'Johnny', age: 36, gender: 'M'], 3: [name:'Claire', age: 21, gender: 'F'], 4: [name:'Amy', age: 54, gender:'F']]
         def Claire = people.find { it.value.name == 'Claire' } // find a single entry
         def ageOfClaire = Claire.value.age
@@ -185,7 +185,7 @@ class Semaphore {
 //            id = project.value.id
            
         // Test code
-        project = parseJson('{"abdef":["Jim","Tom","Sam",["XYZ","ABC"]],{"namek":["adbc","cdef"]}}')
+//        project = parseJson('{"abdef":["Jim","Tom","Sam",["XYZ","ABC"]],{"namek":["adbc","cdef"]}}')
            
         return project
     }
