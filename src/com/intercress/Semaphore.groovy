@@ -1,15 +1,9 @@
 #!/usr/bin/env groovy
 package com.intercress
-import groovy.json.JsonSlurperClassic
 
 // class HelloWorld implements Serializable {
 class Semaphore {
        
-    def String parseJson(String text) {
-        def jsonParser = new JsonSlurperClassic()
-        return jsonParser().parseText(text)
-    }
-           
     static String foo = 'bar'
        
     static String FindProject(String projects, String playbook) {
