@@ -2,6 +2,7 @@
 package com.intercress
 import groovy.json.JsonSlurper
 
+@NonCPS
 def String parseJson(String text) {
     def jsonParser = new JsonSlurper()
     return jsonParser().parseText(text)
