@@ -4,12 +4,12 @@ package com.intercress
 class Semaphore {
                   
     static String FindProject(String projects, String name) {
-        def String project = new JSONParser().parseProjects(projects, name)
-        return project
+        def String id = new JSONParser().parseProjects(projects, name)
+        return id
     }
 
-    static String FindTemplate(String templates, String id, String name) {
-        def String template = new JSONParser().parseTemplates(templates, id, name)
-        return template
+    static String FindTemplate(String templates, String project, String name) {
+        def String id = new JSONParser().parseTemplates(templates, project, template)
+        return id
     }
 }
