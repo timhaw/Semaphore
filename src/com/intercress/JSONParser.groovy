@@ -15,7 +15,7 @@ class JSONParser {
         def slurper = new JsonSlurper()
         def parsedText = slurper.parseText(templates)
         def projects = parsedText.findAll { it.project_id == project.toInteger() }
-//        def String template = parsedText.find { it.playbook == name }.id
-        return name
+        def String template = parsedText.find { it.playbook == name }.id
+        return template
     }
 }
