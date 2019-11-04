@@ -1,6 +1,5 @@
 #!/usr/bin/env groovy
 package com.intercress
-import org.json
 
 // class HelloWorld implements Serializable {
 class Semaphore {
