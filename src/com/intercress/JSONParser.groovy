@@ -5,7 +5,7 @@ class JSONParser {
    /**
     * Get the nearest object or array end
     */
-    def getNearestEnd(String json, int start, String head, String tail) {
+    static String getNearestEnd(String json, int start, String head, String tail) {
         def end = start
         def count = 1
         while (count > 0) {
@@ -23,7 +23,7 @@ class JSONParser {
     /**
      * Parse the object
      */
-    def parseObject(String json) {
+    static String parseObject(String json) {
         def map = [:]
         def length = json.length()
         def index = 1
@@ -94,7 +94,7 @@ class JSONParser {
     /**
      * Parse the array
      */
-    def parseArray(String json) {
+    static String parseArray(String json) {
         def list = []
         def length = json.length()
         def index = 1
