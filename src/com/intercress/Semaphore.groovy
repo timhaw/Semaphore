@@ -7,6 +7,18 @@ class Semaphore implements Serializable {
     static String foo = 'bar'
        
     static String FindProject(String projects, String playbook) {
+           
+        def people = [
+            1: [name:'Bob', age: 32, gender: 'M'],
+            2: [name:'Johnny', age: 36, gender: 'M'],
+            3: [name:'Claire', age: 21, gender: 'F'],
+            4: [name:'Amy', age: 54, gender:'F']
+        ]
+
+        def bob = people.find { it.value.name == 'Bob' } // find a single entry
+        def ageOfBob = bob.value.age
+
+           
 //        def String parsedJson = readJSON text: '{"id":1,"name":"Ansible","created":"2019-10-29T17:03:53Z","alert":false,"alert_chat":""}'
 //        def String  project = projects.find { it.value.name == 'Ansible' }
         def String _projects = [id:1,name:'Ansible',created:'2019-10-29T17:03:53Z',alert:false,alert_chat:'']
