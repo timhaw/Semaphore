@@ -65,8 +65,8 @@ String httpSendTask(String playbook, String cookie) {
 def call(String project, String template) {
     node {
         def String cookie
+        def String project_id
         def String template_id
-        def int project_id
         
         stage ('authenticate') {
             def credentials = [:]
