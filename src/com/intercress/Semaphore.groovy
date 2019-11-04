@@ -1,7 +1,8 @@
 #!/usr/bin/env groovy
 package com.intercress
 
-class Semaphore {
+// class HelloWorld implements Serializable {
+class Semaphore implements Serializable {
        
     static String foo = 'bar'
        
