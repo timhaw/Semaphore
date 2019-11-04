@@ -94,79 +94,79 @@ class Semaphore {
     return map
 }
 
-/**
- * Parse the array
- */
-def parseArray(String json) {
-    def list = []
-    def length = json.length()
-    def index = 1
-    def state = 'none' // none, string-value, other-value
-    while (index < length -1) {
-        def c = json.charAt(index)
-        switch(c) {
-            case '"':
-                def stringStart = index + 1;
-                def stringEnd = stringStart;
-                while (json.charAt(stringEnd) != '"') {
-                    stringEnd++
-                }
-                def stringValue = json[stringStart .. stringEnd - 1]
-                list.add(stringValue)
-                index = stringEnd
-                break
+    /**
+     * Parse the array
+     */
+    def parseArray(String json) {
+        def list = []
+        def length = json.length()
+        def index = 1
+        def state = 'none' // none, string-value, other-value
+        while (index < length -1) {
+            def c = json.charAt(index)
+            switch(c) {
+                case '"':
+                    def stringStart = index + 1;
+                    def stringEnd = stringStart;
+                    while (json.charAt(stringEnd) != '"') {
+                        stringEnd++
+                    }
+                    def stringValue = json[stringStart .. stringEnd - 1]
+                    list.add(stringValue)
+                    index = stringEnd
+                    break
 
-            case '{':
-                def objectStart = index
-                def objectEnd = getNearestEnd(json, index, '{', '}')
-                def objectValue = json[objectStart .. objectEnd]
-                list.add(parseObject(objectValue))
-                index = objectEnd
-                break
+                case '{':
+                    def objectStart = index
+                    def objectEnd = getNearestEnd(json, index, '{', '}')
+                    def objectValue = json[objectStart .. objectEnd]
+                    list.add(parseObject(objectValue))
+                    index = objectEnd
+                    break
 
-            case '[':
-                def arrayStart = index
-                def arrayEnd = getNearestEnd(json, index, '[', ']')
-                def arrayValue = json[arrayStart .. arrayEnd]
-                list.add(parseArray(arrayValue))
-                index = arrayEnd
-                break
+                case '[':
+                    def arrayStart = index
+                    def arrayEnd = getNearestEnd(json, index, '[', ']')
+                    def arrayValue = json[arrayStart .. arrayEnd]
+                    list.add(parseArray(arrayValue))
+                    index = arrayEnd
+                    break
 
-            case ["\n", "\t", "\r", " "]:
-                break
+                case ["\n", "\t", "\r", " "]:
+                    break
 
-            case ',':
-                state = 'none'
-                key = ''
-                break;
+                case ',':
+                    state = 'none'
+                    key = ''
+                    break;
 
-            default:
-                break
+                default:
+                    break
+            }
+            index++
         }
-        index++
+
+        return list
     }
 
-    return list
-}
-
-/**
- * Parse the JSON, object or array
- */
-def parseJson(String json) {
-    def start = json[0]
-    if (start == '[') {
-        return parseArray(json)
-    } else if (start == '{') {
-        return parseObject(json)
-    } else {
-        return null
+    /**
+     * Parse the JSON, object or array
+     */
+    def parseJson(String json) {
+        def start = json[0]
+        if (start == '[') {
+            return parseArray(json)
+        } else if (start == '{') {
+            return parseObject(json)
+        } else {
+            return null
+        }
     }
-}
 
-// Test code
-def project = parseJson('{"abdef":["Jim","Tom","Sam",["XYZ","ABC"]],{"namek":["adbc","cdef"]}}')
+    // Test code
+    def project = parseJson('{"abdef":["Jim","Tom","Sam",["XYZ","ABC"]],{"namek":["adbc","cdef"]}}')
        
-       static String foo = 'bar'
+    static String foo = 'bar'
        
     static String FindProject(String projects, String playbook) {
            
