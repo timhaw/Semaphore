@@ -9,7 +9,7 @@ class Semaphore implements Serializable {
     static String FindProject(String projects, String playbook) {
 //        def String parsedJson = readJSON text: '{"id":1,"name":"Ansible","created":"2019-10-29T17:03:53Z","alert":false,"alert_chat":""}'
 //        def String  project = projects.find { it.value.name == 'Ansible' }
-        def String _projects = [id:1,name:Ansible,created:2019-10-29T17:03:53Z,alert:false,alert_chat:]
+        def String _projects = [id:1,name:'Ansible',created:'2019-10-29T17:03:53Z',alert:false,alert_chat:'']
         def String  project = _projects.find { it.value.name == 'Ansible' }
 //            project = jsonText.find { it.value.name == 'katone' }     // No such property: name for class: java.lang.String
 //            assertTrue(map.find{it.value == "New York"}.key == "city")
