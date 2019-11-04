@@ -12,7 +12,9 @@ class Semaphore implements Serializable {
         def Claire = people.find { it.value.name == 'Claire' } // find a single entry
         def ageOfClaire = Claire.value.age
 
+//        [{"id":1,"name":"Ansible","created":"2019-10-29T17:03:53Z","alert":false,"alert_chat":""},{"id":2,"name":"Test","created":"2019-11-03T10:20:26Z","alert":false,"alert_chat":""}]
         def _projects = [1: [id:1,name:'Ansible',created:'2019-10-29T17:03:53Z',alert:false,alert_chat:'']]
+           
         def project = _projects.find { it.value.name == 'Ansible' }
         def id = project.value.id
           
