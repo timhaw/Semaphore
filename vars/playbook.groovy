@@ -79,6 +79,7 @@ def call(String playbook) {
 //            projects = httpGetProjects(cookie)
             projects = '[{"id":1,"ssh_key_id":1,"project_id":1,"inventory_id":1,"repository_id":1,"environment_id":null,"alias":"Ansible","playbook":"local.yml","arguments":null,"override_args":false},{"id":2,"ssh_key_id":1,"project_id":1,"inventory_id":1,"repository_id":1,"environment_id":null,"alias":"Test","playbook":"test.yml","arguments":null,"override_args":false}]'
             jsonText = readJSON text: projects
+            assert props.key == 'playbook'
 //            project = jsonText.find { it.value.name == 'Ansible' }
 //            project = jsonText.find { it.value.name == 'katone' }     // No such property: name for class: java.lang.String
 //            assertTrue(map.find{it.value == "New York"}.key == "city")
