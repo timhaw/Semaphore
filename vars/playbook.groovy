@@ -77,8 +77,8 @@ def call(String playbook) {
     
         stage ('project') {
             projects = httpGetProjects(cookie)
-            parsedJson = readJSON text: projects
-            project = Semaphore.FindProject(parsedJson.toString(), playbook)
+//            parsedJson = readJSON text: projects
+            project = Semaphore.FindProject(projects, playbook)
         }
     
         stage ('template') {
