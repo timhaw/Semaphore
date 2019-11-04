@@ -1,4 +1,6 @@
-class jsonParser
+#!/usr/bin/env groovy
+
+class JSONParser
     static String parseJson(String text) {
    /**
     * Get the nearest object or array end
