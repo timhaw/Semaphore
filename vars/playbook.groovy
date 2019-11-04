@@ -62,7 +62,7 @@ String httpSendTask(String playbook, String cookie) {
     return response
 }
 
-def call(String jobName) {
+def call(String playbook) {
     node {
         def String cookie
         stage ('authenticate') {
@@ -77,7 +77,7 @@ def call(String jobName) {
     
         stage ('project') {
             projects = httpGetProjects(cookie)
-            project = Semaphore.FindProject(projects, jobName)
+            project = Semaphore.FindProject(projects, playbook)
         }
     
         stage ('template') {
