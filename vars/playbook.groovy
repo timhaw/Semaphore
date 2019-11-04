@@ -62,7 +62,7 @@ String httpSendTask(String playbook, String cookie) {
     return response
 }
 
-def String parsedJson
+static def String parsedJson
 
 def call(String playbook) {
     node {
