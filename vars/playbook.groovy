@@ -40,7 +40,7 @@ String httpGetTemplates(String cookie, String project) {
     requestParams.contentType = 'APPLICATION_JSON'
     requestParams.customHeaders = [cookieHeader]
     requestParams.httpMode = 'GET'
-    requestParams.url = 'http://localhost:3000/api/project/${project}/templates?sort=alias&order=asc'
+    requestParams.url = "http://localhost:3000/api/project/${project}/templates?sort=alias&order=asc"
     def response = httpRequest requestParams
     return response.content
 }
