@@ -187,6 +187,6 @@ class Semaphore {
         // Test code
 //        project = parseJson('{"abdef":["Jim","Tom","Sam",["XYZ","ABC"]],{"namek":["adbc","cdef"]}}')
            
-        return project
+        return projects
     }
 }
