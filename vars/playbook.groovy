@@ -45,8 +45,8 @@ String httpGetTemplates(String cookie, String project) {
     return response.content
 }
 
-String httpSendTask(String playbook, String cookie) {
-    def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])
+String httpSendTask(String playbook, String cookie, String project, String template) {
+    def schema = JsonOutput.toJson([template_id: ${template.toInteger()}, debug: false, dry_run: false, playbook: playbook, environment: ''])
     def cookieHeader = [:]
     cookieHeader.name = 'Cookie'
     cookieHeader.value = cookie
@@ -57,7 +57,7 @@ String httpSendTask(String playbook, String cookie) {
     requestParams.customHeaders = [cookieHeader]
     requestParams.httpMode = 'POST'
     requestParams.requestBody = schema
-    requestParams.url = 'http://localhost:3000/api/project/1/tasks'
+    requestParams.url = "http://localhost:3000/api/project/${project}/tasks"
     def response = httpRequest requestParams
     return response
 }
@@ -89,7 +89,7 @@ def call(String project, String template) {
         }
     
         stage ('playbook') {
-            status = httpSendTask(project, cookie)
+            status = httpSendTask(project, cookie, project_id, template_id)
         }
 
         echo "Hello, ${template_id}"
