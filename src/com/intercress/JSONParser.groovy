@@ -1,11 +1,10 @@
 #!/usr/bin/env groovy
 
 class JSONParser {
-    static String parseJson(String text) {
    /**
     * Get the nearest object or array end
     */
-    static getNearestEnd(String json, int start, String head, String tail) {
+    def getNearestEnd(String json, int start, String head, String tail) {
         def end = start
         def count = 1
         while (count > 0) {
@@ -158,6 +157,5 @@ class JSONParser {
         } else {
             return null
         }
-    }
     }
 }
