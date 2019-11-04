@@ -45,8 +45,8 @@ String httpGetTemplates(String cookie, String project) {
     return response.content
 }
 
-String httpSendTask(String playbook, String cookie, String project, String template) {
-    def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])
+String httpSendTask(String cookie, String project, String template, String playbook) {
+    def schema = JsonOutput.toJson([template_id: template.toInteger(), debug: false, dry_run: false, playbook: playbook, environment: ''])
     def cookieHeader = [:]
     cookieHeader.name = 'Cookie'
     cookieHeader.value = cookie
@@ -62,7 +62,7 @@ String httpSendTask(String playbook, String cookie, String project, String templ
     return response
 }
 
-def call(String project, String template) {
+def call(String project, String playbook) {
     node {
         def String cookie
         def String project_id
@@ -85,11 +85,11 @@ def call(String project, String template) {
     
         stage ('template') {
             templates = httpGetTemplates(cookie, project_id)
-            template_id = Semaphore.FindTemplate(templates, project_id, template)
+            template_id = Semaphore.FindTemplate(templates, project_id, playbook)
         }
     
         stage ('playbook') {
-            status = httpSendTask(project, cookie, project_id, template_id)
+            status = httpSendTask(cookie, project_id, template_id, playbook)
         }
 
         echo "Hello, ${template_id}"
