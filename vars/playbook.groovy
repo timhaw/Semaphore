@@ -92,6 +92,6 @@ def call(String project, String template) {
             status = httpSendTask(project, cookie)
         }
 
-        echo "Hello, ${templates}"
+        echo "Hello, ${template_id}"
     }
 }
