@@ -18,6 +18,6 @@ class JSONParser {
 //        def projects = parsedText.findAll { it.project_id == project }
 //        def String template = parsedText.find { it.id == project }.id
 //        return template
-        return projects
+        return templates
     }
 }
