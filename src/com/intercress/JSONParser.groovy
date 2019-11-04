@@ -8,8 +8,8 @@ class JSONParser {
 //        return slurper.parseText('{"person":{"name":"Guillaume","age":33,"pets":["dog","cat"]}}')
         def String jsonText = '{"id":63,"template_id":1,"status":"waiting","debug":false,"dry_run":false,"playbook":"local.yml","environment":"","user_id":1,"created":"2019-11-04T17:42:19.313545224Z","start":null,"end":null}'
         def parsedText = slurper.parseText(jsonText)
-        def String project = parsedText.find { it.value.name == 'Ansible' }
+        def String project = parsedText.find { it.value.playbook == 'local.yml' }
 //        return slurper.parseText('{"id":63,"template_id":1,"status":"waiting","debug":false,"dry_run":false,"playbook":"local.yml","environment":"","user_id":1,"created":"2019-11-04T17:42:19.313545224Z","start":null,"end":null}')
-        return parsedText
+        return project
     }
 }
