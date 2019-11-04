@@ -185,7 +185,7 @@ class Semaphore {
 //            id = project.value.id
            
         // Test code
-//        project = parseJson('{"abdef":["Jim","Tom","Sam",["XYZ","ABC"]],{"namek":["adbc","cdef"]}}')
+        project = new JSONParser().parseJson('{"abdef":["Jim","Tom","Sam",["XYZ","ABC"]],{"namek":["adbc","cdef"]}}')
            
         return projects
     }
