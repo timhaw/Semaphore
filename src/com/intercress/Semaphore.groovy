@@ -1,5 +1,6 @@
 #!/usr/bin/env groovy
 package com.intercress
+import groovy.json.JsonSlurper
 
 // class HelloWorld implements Serializable {
 class Semaphore implements Serializable {
@@ -15,10 +16,10 @@ class Semaphore implements Serializable {
 //        [{"id":1,"name":"Ansible","created":"2019-10-29T17:03:53Z","alert":false,"alert_chat":""},{"id":2,"name":"Test","created":"2019-11-03T10:20:26Z","alert":false,"alert_chat":""}]
         def _projects = [1: [id:1,name:'Ansible',created:'2019-10-29T17:03:53Z',alert:false,alert_chat:'']]
            
-        def project = _projects.find { it.value.name == 'Ansible' }
-        def id = project.value.id
+//        def project = _projects.find { it.value.name == 'Ansible' }
+//        def id = project.value.id
            
-        new JsonSlurper().parseText(requestString)
+        def project = new JsonSlurper().parseText(projects)
            
 //        def String parsedJson = readJSON text: '{"id":1,"name":"Ansible","created":"2019-10-29T17:03:53Z","alert":false,"alert_chat":""}'
 //        def String  project = projects.find { it.value.name == 'Ansible' }
@@ -27,6 +28,6 @@ class Semaphore implements Serializable {
 //            assertTrue(jsonText.find { it.value == "local.yml"}.key == "playbook")
 //            project = jsonText.find { it.key == 'playbook' }
 //            id = project.value.id
-        return projects
+        return project
     }
 }
