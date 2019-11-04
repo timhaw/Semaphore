@@ -28,7 +28,7 @@ class JSONParser {
         def length = json.length()
         def index = 1
         def state = 'none' // none, string-value, other-value
-        static key = ''
+        static String key = ''
         while (index < length -1) {
             def c = json.charAt(index)
             switch(c) {
