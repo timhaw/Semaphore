@@ -23,12 +23,13 @@ class JSONParser {
     /**
      * Parse the object
      */
-    static String parseObject(String json) {
+   static String key = ''
+   static String parseObject(String json) {
         def map = [:]
         def length = json.length()
         def index = 1
         def state = 'none' // none, string-value, other-value
-        static String key = ''
+        key = ''
         while (index < length -1) {
             def c = json.charAt(index)
             switch(c) {
