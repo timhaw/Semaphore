@@ -163,7 +163,7 @@ class Semaphore {
     }
 
     // Test code
-    def project = parseJson('{"abdef":["Jim","Tom","Sam",["XYZ","ABC"]],{"namek":["adbc","cdef"]}}')
+    def String project = parseJson('{"abdef":["Jim","Tom","Sam",["XYZ","ABC"]],{"namek":["adbc","cdef"]}}')
        
     static String foo = 'bar'
        
