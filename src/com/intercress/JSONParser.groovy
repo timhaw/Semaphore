@@ -14,7 +14,7 @@ class JSONParser {
     static parseTemplates(String text, String id, String name) {
         def slurper = new JsonSlurper()
         def parsedText = slurper.parseText(text)
-        def String template = parsedText.find { it.id == id }.id
+        def String template = parsedText.find { it.project_id == id }.id
         return template
     }
 }
