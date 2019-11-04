@@ -30,7 +30,7 @@ String httpGetProjects(String cookie) {
     return response.content
 }
 
-String httpGetTemplates(String cookie) {
+String httpGetTemplates(String cookie, String project) {
     def cookieHeader = [:]
     cookieHeader.name = 'Cookie'
     cookieHeader.value = cookie
@@ -40,7 +40,7 @@ String httpGetTemplates(String cookie) {
     requestParams.contentType = 'APPLICATION_JSON'
     requestParams.customHeaders = [cookieHeader]
     requestParams.httpMode = 'GET'
-    requestParams.url = 'http://localhost:3000/api/project/1/templates?sort=alias&order=asc'
+    requestParams.url = 'http://localhost:3000/api/project/${project}/templates?sort=alias&order=asc'
     def response = httpRequest requestParams
     return response.content
 }
@@ -84,7 +84,7 @@ def call(String project, String template) {
         }
     
         stage ('template') {
-            templates = httpGetTemplates(cookie)
+            templates = httpGetTemplates(cookie, project_id)
             template_id = Semaphore.FindTemplate(templates, project_id, template)
         }
     
