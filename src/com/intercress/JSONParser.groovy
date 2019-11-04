@@ -8,7 +8,7 @@ class JSONParser {
 //        return slurper.parseText('{"person":{"name":"Guillaume","age":33,"pets":["dog","cat"]}}')
         def String jsonText = '[{"id":1,"name":"Ansible","created":"2019-10-29T17:03:53Z","alert":false,"alert_chat":""},{"id":2,"name":"Test","created":"2019-11-03T10:20:26Z","alert":false,"alert_chat":""}]'
         def parsedText = slurper.parseText(jsonText)
-        def String project = parsedText.find { it.name == 'Test' }.value
+        def String project = parsedText.find { it.name == 'Test' }.id
 //        def result = project.value.id
         
 //        assert slurper.name == 'Ansible'
