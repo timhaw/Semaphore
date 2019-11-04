@@ -85,13 +85,13 @@ def call(String project, String template) {
     
         stage ('template') {
             templates = httpGetTemplates(cookie)
-            template_id = Semaphore.FindTemplate(templates, project, template)
+//            template_id = Semaphore.FindTemplate(templates, project, template)
         }
     
         stage ('playbook') {
             status = httpSendTask(project, cookie)
         }
 
-        echo "Hello, ${template_id}"
+        echo "Hello, ${templates}"
     }
 }
