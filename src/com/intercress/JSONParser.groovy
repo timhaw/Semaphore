@@ -3,10 +3,18 @@ package com.intercress
 import groovy.json.JsonSlurper
 
 class JSONParser {
-    static parseJson(String jsonText, String jobName) {
+
+    static parseProjects(String text, String name) {
         def slurper = new JsonSlurper()
-        def parsedText = slurper.parseText(jsonText)
-        def String id = parsedText.find { it.name == jobName }.id
-        return id
+        def parsedText = slurper.parseText(text)
+        def String project = parsedText.find { it.name == name }.id
+        return project
+    }
+
+    static parseTemplates(String text, String id, String name) {
+        def slurper = new JsonSlurper()
+        def parsedText = slurper.parseText(text)
+        def String template = parsedText.find { it.id == id }.id
+        return template
     }
 }
