@@ -12,7 +12,7 @@ class Semaphore implements Serializable {
         def Claire = people.find { it.value.name == 'Claire' } // find a single entry
         def ageOfClaire = Claire.value.age
 
-        def _projects = [[id:1,name:'Ansible',created:'2019-10-29T17:03:53Z',alert:false,alert_chat:'']]
+        def _projects = [1: [id:1,name:'Ansible',created:'2019-10-29T17:03:53Z',alert:false,alert_chat:'']]
         def project = _projects.find { it.value.name == 'Ansible' }
         def id = project.value.id
           
@@ -23,6 +23,6 @@ class Semaphore implements Serializable {
 //            assertTrue(jsonText.find { it.value == "local.yml"}.key == "playbook")
 //            project = jsonText.find { it.key == 'playbook' }
 //            id = project.value.id
-        return id
+        return projects
     }
 }
