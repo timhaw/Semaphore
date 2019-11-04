@@ -4,17 +4,17 @@ import groovy.json.JsonSlurper
 
 class JSONParser {
 
-    static parseProjects(String text, String name) {
+    static parseProjects(String projects, String name) {
         def slurper = new JsonSlurper()
-        def parsedText = slurper.parseText(text)
+        def parsedText = slurper.parseText(projects)
         def String project = parsedText.find { it.name == name }.id
         return project
     }
 
-    static parseTemplates(String text, String id, String name) {
+    static parseTemplates(String templates, String project, String name) {
         def slurper = new JsonSlurper()
-        def parsedText = slurper.parseText(text)
-        def String template = parsedText.find { it.project_id == id }.id
+        def parsedText = slurper.parseText(templates)
+        def String template = parsedText.find { it.project_id == project }.id
         return template
     }
 }
