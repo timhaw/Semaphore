@@ -14,6 +14,6 @@ class Semaphore implements Serializable {
 //            assertTrue(jsonText.find { it.value == "local.yml"}.key == "playbook")
 //            project = jsonText.find { it.key == 'playbook' }
 //            id = project.value.id
-        return parsedJson
+        return 'Hello World'
     }
 }
