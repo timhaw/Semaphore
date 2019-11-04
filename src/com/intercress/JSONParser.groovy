@@ -3,7 +3,7 @@ package com.intercress
 import groovy.json.JsonSlurper
 
 class JSONParser {
-    static parseJson(String jsonText) {
+    static String parseJson(String jsonText) {
         def slurper = new JsonSlurper()
         def String parsedJson = slurper().parseText(jsonText)
         return parsedJson
