@@ -57,39 +57,39 @@ class Semaphore {
                     }
                     break
 
-            case '{':
-                def objectStart = index
-                def objectEnd = getNearestEnd json, index, '{', '}'
-                def objectValue = json[objectStart .. objectEnd]
-                map.put(key, parseObject(objectValue))
-                index = objectEnd
-                break
+                case '{':
+                    def objectStart = index
+                    def objectEnd = getNearestEnd json, index, '{', '}'
+                    def objectValue = json[objectStart .. objectEnd]
+                    map.put(key, parseObject(objectValue))
+                    index = objectEnd
+                    break
 
-            case '[':
-                def arrayStart = index
-                def arrayEnd = getNearestEnd(json, index, '[', ']')
-                def arrayValue = json[arrayStart .. arrayEnd]
-                map.put(key, parseArray(arrayValue))
-                index = arrayEnd
-                break
+                case '[':
+                    def arrayStart = index
+                    def arrayEnd = getNearestEnd(json, index, '[', ']')
+                    def arrayValue = json[arrayStart .. arrayEnd]
+                    map.put(key, parseArray(arrayValue))
+                    index = arrayEnd
+                    break
 
-            case ':':
-                state = 'value'
-                break
+                case ':':
+                    state = 'value'
+                    break
 
-            case ',':
-                state = 'none'
-                key = ''
-                break;
+                case ',':
+                    state = 'none'
+                    key = ''
+                    break;
 
-            case ["\n", "\t", "\r", " "]:
-                break
+                case ["\n", "\t", "\r", " "]:
+                    break
 
-            default:
-                break
+                default:
+                    break
+            }
+            index++
         }
-        index++
-    }
 
     return map
 }
