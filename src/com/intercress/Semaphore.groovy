@@ -3,7 +3,7 @@ package com.intercress
 import groovy.json.JsonSlurper
 
 // class HelloWorld implements Serializable {
-class Semaphore implements Serializable {
+class Semaphore {
        
     static String foo = 'bar'
        
