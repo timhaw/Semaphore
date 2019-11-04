@@ -78,7 +78,7 @@ def call(String playbook) {
         stage ('project') {
             projects = httpGetProjects(cookie)
 //            projects = '[{"id":1,"ssh_key_id":1,"project_id":1,"inventory_id":1,"repository_id":1,"environment_id":null,"alias":"Ansible","playbook":"local.yml","arguments":null,"override_args":false},{"id":2,"ssh_key_id":1,"project_id":1,"inventory_id":1,"repository_id":1,"environment_id":null,"alias":"Test","playbook":"test.yml","arguments":null,"override_args":false}]'
-//            jsonText = readJSON text: projects
+            jsonText = readJSON text: projects
             project = Semaphore.FindProject(projects, playbook)
 //            assert projects.playbook == 'local.yml'
 //            project = jsonText.find { it.value.name == 'Ansible' }
