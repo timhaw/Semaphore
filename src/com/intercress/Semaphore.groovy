@@ -8,8 +8,8 @@ class Semaphore {
         return project
     }
 
-    static String FindTemnplate(String templates, String id) {
-        def String project = new JSONParser().parseJson(templates, id)
+    static String FindTemplate(String templates, String id) {
+        def String template = new JSONParser().parseJson(templates, id)
         return template
     }
 }
