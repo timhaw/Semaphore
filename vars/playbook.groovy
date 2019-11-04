@@ -62,6 +62,8 @@ String httpSendTask(String playbook, String cookie) {
     return response
 }
 
+def String parsedJson
+
 def call(String playbook) {
     node {
         def String cookie
@@ -77,7 +79,7 @@ def call(String playbook) {
     
         stage ('project') {
             projects = httpGetProjects(cookie)
-            def String parsedJson = readJSON text: projects
+            parsedJson = readJSON text: projects
             project = Semaphore.FindProject(parsedJson, playbook)
         }
     
