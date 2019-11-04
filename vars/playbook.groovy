@@ -62,8 +62,6 @@ String httpSendTask(String playbook, String cookie) {
     return response
 }
 
-def JSONArray parsedJson
-
 def call(String playbook) {
     node {
         def String cookie
@@ -91,6 +89,6 @@ def call(String playbook) {
             status = httpSendTask(playbook, cookie)
         }
     
-        echo "Hello, ${parsedJson.toString()}"
+        echo "Hello, ${project}"
     }
 }
