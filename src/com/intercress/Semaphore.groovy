@@ -188,6 +188,7 @@ class Semaphore {
 //        def String jsonText = '{"abdef":["Jim","Tom","Sam",["XYZ","ABC"]],{"namek":["adbc","cdef"]}}'
         def String jsonText = '{"id":61,"template_id":1,"status":"waiting","debug":false,"dry_run":false,"playbook":"local.yml","environment":"","user_id":1,"created":"2019-11-04T16:54:23.52036163Z","start":null,"end":null}'
            
+//        def String project = new JSONParser().parseJson()
         def String project = new JSONParser().parseJson(jsonText)
            
         return project
