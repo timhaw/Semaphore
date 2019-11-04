@@ -18,8 +18,6 @@ class Semaphore {
 //        def project = _projects.find { it.value.name == 'Ansible' }
 //        def id = project.value.id
            
-        def String parsedJson = parseJson(projects)
-           
 //        def String parsedJson = readJSON text: '{"id":1,"name":"Ansible","created":"2019-10-29T17:03:53Z","alert":false,"alert_chat":""}'
 //        def String  project = projects.find { it.value.name == 'Ansible' }
 //            project = jsonText.find { it.value.name == 'katone' }     // No such property: name for class: java.lang.String
@@ -27,6 +25,6 @@ class Semaphore {
 //            assertTrue(jsonText.find { it.value == "local.yml"}.key == "playbook")
 //            project = jsonText.find { it.key == 'playbook' }
 //            id = project.value.id
-        return parsedJson
+        return projects
     }
 }
