@@ -2,6 +2,11 @@
 package com.intercress
 import groovy.json.JsonSlurper
 
+def String parseJson(String text) {
+    def jsonParser = new JsonSlurper()
+    return jsonParser().parseText(text)
+}
+           
 // class HelloWorld implements Serializable {
 class Semaphore {
        
@@ -19,7 +24,7 @@ class Semaphore {
 //        def project = _projects.find { it.value.name == 'Ansible' }
 //        def id = project.value.id
            
-        def project = new JsonSlurper().parseText(projects)
+        def String parsedJson = parseJson(projects)
            
 //        def String parsedJson = readJSON text: '{"id":1,"name":"Ansible","created":"2019-10-29T17:03:53Z","alert":false,"alert_chat":""}'
 //        def String  project = projects.find { it.value.name == 'Ansible' }
@@ -28,6 +33,6 @@ class Semaphore {
 //            assertTrue(jsonText.find { it.value == "local.yml"}.key == "playbook")
 //            project = jsonText.find { it.key == 'playbook' }
 //            id = project.value.id
-        return project
+        return parsedJson
     }
 }
