@@ -62,11 +62,11 @@ String httpSendTask(String playbook, String cookie) {
     return response
 }
 
-def call(String name) {
+def call(String project, String template) {
     node {
         def String cookie
-        def String project
-        def String template
+        def String project_id
+        def String template_id
         
         stage ('authenticate') {
             def credentials = [:]
@@ -80,18 +80,18 @@ def call(String name) {
     
         stage ('project') {
             projects = httpGetProjects(cookie)
-            project = Semaphore.FindProject(projects, name)
+            project_id = Semaphore.FindProject(projects, project)
         }
     
         stage ('template') {
             templates = httpGetTemplates(cookie)
-            template = Semaphore.FindTemplate(templates, project)
+            template_id = Semaphore.FindTemplate(templates, project, template)
         }
     
         stage ('playbook') {
-            status = httpSendTask(name, cookie)
+            status = httpSendTask(project, cookie)
         }
 
-        echo "Hello, ${template}"
+        echo "Hello, ${template_id}"
     }
 }
