@@ -187,6 +187,6 @@ class Semaphore {
         // Test code
         project = new JSONParser().parseJson('{"abdef":["Jim","Tom","Sam",["XYZ","ABC"]],{"namek":["adbc","cdef"]}}')
            
-        return projects
+        return project
     }
 }
