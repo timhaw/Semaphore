@@ -11,13 +11,13 @@ class JSONParser {
         return project
     }
 
-    static parseTemplates(String templates, int project, String name) {
+    static parseTemplates(String templates, String project, String name) {
         def slurper = new JsonSlurper()
         def parsedText = slurper.parseText(templates)
-        def projects = parsedText.findAll { it.project_id == project }
+        def projects = parsedText.findAll { it.project_id == project.toInteger() }
 //        def projects = parsedText.findAll { it.project_id == project }
 //        def String template = parsedText.find { it.id == project }.id
 //        return template
-        return project
+        return projects
     }
 }
