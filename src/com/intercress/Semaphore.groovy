@@ -15,8 +15,8 @@ class Semaphore implements Serializable {
             4: [name:'Amy', age: 54, gender:'F']
         ]
 
-        def bob = people.find { it.value.name == 'Bob' } // find a single entry
-        def ageOfBob = bob.value.age
+        def Claire = people.find { it.value.name == 'Claire' } // find a single entry
+        def ageOfClaire = Claire.value.age
 
            
 //        def String parsedJson = readJSON text: '{"id":1,"name":"Ansible","created":"2019-10-29T17:03:53Z","alert":false,"alert_chat":""}'
@@ -28,6 +28,6 @@ class Semaphore implements Serializable {
 //            assertTrue(jsonText.find { it.value == "local.yml"}.key == "playbook")
 //            project = jsonText.find { it.key == 'playbook' }
 //            id = project.value.id
-        return ageOfBob
+        return ageOfClaire
     }
 }
