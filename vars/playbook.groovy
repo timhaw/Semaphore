@@ -46,7 +46,7 @@ String httpGetTemplates(String cookie, String project) {
 }
 
 String httpSendTask(String playbook, String cookie, String project, String template) {
-    def schema = JsonOutput.toJson([template_id: template.toInteger(), debug: false, dry_run: false, playbook: playbook, environment: ''])
+    def schema = JsonOutput.toJson([template_id: 1, debug: false, dry_run: false, playbook: playbook, environment: ''])
     def cookieHeader = [:]
     cookieHeader.name = 'Cookie'
     cookieHeader.value = cookie
