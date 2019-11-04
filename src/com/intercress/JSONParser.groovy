@@ -1,4 +1,5 @@
 #!/usr/bin/env groovy
+package com.intercress
 
 class JSONParser {
    /**
