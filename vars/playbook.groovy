@@ -80,7 +80,7 @@ def call(String playbook) {
         stage ('project') {
             projects = httpGetProjects(cookie)
             parsedJson = readJSON text: projects
-            project = Semaphore.FindProject(parsedJson, playbook)
+            project = Semaphore.FindProject(parsedJson.toString(), playbook)
         }
     
         stage ('template') {
@@ -91,6 +91,6 @@ def call(String playbook) {
             status = httpSendTask(playbook, cookie)
         }
     
-        echo "Hello, ${parsedJson}"
+        echo "Hello, ${parsedJson.toString()}"
     }
 }
