@@ -1,10 +1,9 @@
 #!/usr/bin/env groovy
 package com.intercress
-import groovy.json.JsonSlurper
+import groovy.json.JsonSlurperClassic
 
-@NonCPS
 def String parseJson(String text) {
-    def jsonParser = new JsonSlurper()
+    def jsonParser = new JsonSlurperClassic()
     return jsonParser().parseText(text)
 }
            
