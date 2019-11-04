@@ -6,7 +6,7 @@ class Semaphore implements Serializable {
        
     static String foo = 'bar'
        
-    static String FindProject(String projects, String playbook) {
+    static String FindProject(JSONArray projects, String playbook) {
            
         def people = [1: [name:'Bob', age: 32, gender: 'M'], 2: [name:'Johnny', age: 36, gender: 'M'], 3: [name:'Claire', age: 21, gender: 'F'], 4: [name:'Amy', age: 54, gender:'F']]
         def Claire = people.find { it.value.name == 'Claire' } // find a single entry
