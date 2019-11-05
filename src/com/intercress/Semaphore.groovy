@@ -4,7 +4,7 @@ import groovy.json.JsonOutput
 
 class Semaphore {
     
-    static Map tasksContent(String project, String template, String playbook) {
+    static Map taskContent(String project, String template, String playbook) {
         def schema = [:]
         schema.template_id = template.toInteger()
         schema.debug = false
@@ -60,11 +60,12 @@ class Semaphore {
     }
 
     static String sendTask(String cookie, String project, String template, String playbook) {
+        content = new taskContent(project, template, playbook)
         def requestParams = buildHeader()
         requestParams = addCookie(requestParams, cookie)
         requestParams.httpMode = 'POST'
-        requestParams.requestBody = tasksContent.schema
-        requestParams.url = tasksContent.url
+        requestParams.requestBody = content.schema
+        requestParams.url = content.url
         return requestParams
     }
 
