@@ -62,14 +62,16 @@ class Semaphore {
     
 //    static Map tasks(String project, String template, String playbook) {
 //        def schema = [:]
-//        schema.tasks = JsonOutput.toJson([\
-//            template_id: template.toInteger(), \
-//            debug: false, \
-//            dry_run: false, \
-//            playbook: playbook, \
-//            environment: ''])
-//        schema.url = "http://localhost:3000/api/project/${project}/tasks"
-//        return schema
+//        schema.template_id = template.toInteger()
+//        schema.debug = false
+//        schema.dry_run = false
+//        schema.playbook = playbook
+//        schema.environment = ''
+//        def tasks = [:]
+//        tasks.schema = JsonOutput.toJson(schema)
+//        tasks.url = "http://localhost:3000/api/project/${project}/tasks"
+//            
+//        return tasks
 //    }
     
 //    static Map tasksAPI(String project, String template, String playbook) {
