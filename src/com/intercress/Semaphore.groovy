@@ -11,7 +11,7 @@ class Semaphore {
         requestParams.consoleLogResponseBody = true
     }
 
-    static String addCookie() {
+    static String addCookie(String cookie) {
         def cookieHeader = [:]
         cookieHeader.name = 'Cookie'
         cookieHeader.value = cookie
@@ -20,6 +20,7 @@ class Semaphore {
 
     static String requestCookie(String username, String password) {
         def credentials = JsonOutput.toJson([auth: username, password: password])
+        buildHeader
         requestParams.httpMode = 'POST'
         requestParams.requestBody = credentials
         requestParams.url = 'http://localhost:3000/api/auth/login'
