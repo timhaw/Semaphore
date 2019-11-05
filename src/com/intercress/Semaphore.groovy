@@ -182,16 +182,6 @@ class Semaphore {
         return requestParams
     }
 
-//    static String sendTask(String cookie, String project, String template, String playbook) {
-//        def content = taskContent(project, template, playbook)
-//        def requestParams = buildHeader()
-//        requestParams = addCookie(requestParams, cookie)
-//        requestParams.httpMode = 'POST'
-//        requestParams.requestBody = content.schema
-//        requestParams.url = content.url
-//        return requestParams
-//    }
-
     static String FindProject(String projects, String name) {
         def String id = new JSONParser().parseProjects(projects, name)
         return id
