@@ -90,7 +90,7 @@ def call(String project, String playbook) {
     
         stage ('playbook') {
             status = httpSendTask(cookie, project_id, template_id, playbook)
-            result = Semaphore.httpSendTask(cookie, project_id, template_id, playbook)
+            result = Semaphore.sendTask(cookie, project_id, template_id, playbook)
         }
 
         echo "Hello, ${result}"
