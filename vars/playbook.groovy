@@ -80,7 +80,7 @@ def call(String project, String playbook) {
     
         stage ('project') {
 //            projects = httpGetProjects(cookie)
-            response = httpRequest Semaphore.getProjects(cookie, project)
+            response = httpRequest Semaphore.getProjects(cookie)
             projects = response.content
             project_id = Semaphore.FindProject(projects, project)
         }
