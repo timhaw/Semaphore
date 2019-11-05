@@ -75,7 +75,7 @@ def call(String project, String playbook) {
             credentials.passwordVariable = 'password'
             withCredentials([usernamePassword(credentials)]) {
                 cookie = httpRequestCookie(username, password)[0]
-                result = Semaphore.requestCookie(username, password)[0]
+                result = Semaphore.requestCookie(username, password)
 //                response = httpRequest Semaphore.requestCookie(username, password)[0]
 //                cookie = response.headers.get("Set-Cookie")    
             }
