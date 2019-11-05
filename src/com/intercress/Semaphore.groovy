@@ -59,6 +59,17 @@ class Semaphore {
         def String id = new JSONParser().parseProjects(projects, name)
         return id
     }
+    
+    static Map api() {
+        def schema = [:]
+        schema.tasks =
+        schema.projects = 
+        schema.keys = 
+        schema.repositories = 
+        schema.inventory = 
+        schema.templates = 
+        return schema
+    }
 
     static String FindTemplate(String templates, String project, String name) {
         def String id = new JSONParser().parseTemplates(templates, project, name)
