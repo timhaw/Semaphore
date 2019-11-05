@@ -2,8 +2,76 @@
 package com.intercress
 import groovy.json.JsonOutput
 
-class Semaphore {
-    
+class Semaphore {    
+
+    static Map projectContent(String name) {
+        def schema = [:]
+        schema.name = name
+        def tasks = [:]
+        tasks.schema = JsonOutput.toJson(schema)
+        tasks.url = "http://localhost:3000/api/projects"
+            
+        return tasks
+    }
+
+    static Map keyContent(String name, String project, String key, String secret) {
+        def schema = [:]
+        schema.name = name
+        schema.type = 'ssh'
+        schema.project_id = project.toInteger()
+        schema.key = key
+        schema.secret = secret
+        def tasks = [:]
+        tasks.schema = JsonOutput.toJson(schema)
+        tasks.url = "http://localhost:3000/api/project/${project}/keys"
+            
+        return tasks
+    }
+
+    static Map repositoryContent(String name, String project, String url) {
+        def schema = [:]
+        schema.name = name
+        schema.project_id = project.toInteger()
+        schema.git_url = url
+        schema.ssh_key_id = 1
+        def tasks = [:]
+        tasks.schema = JsonOutput.toJson(schema)
+        tasks.url = "http://localhost:3000/api/project/${project}/repositories"
+            
+        return tasks
+    }
+
+    static Map inventoryContent(String name, String project, String inventory) {
+        def schema = [:]
+        schema.name = name
+        schema.project_id = project.toInteger()
+        schema.inventory = inventory
+        schema.ssh_key_id = 1
+        schema.type = 'file'
+        def tasks = [:]
+        tasks.schema = JsonOutput.toJson(schema)
+        tasks.url = "http://localhost:3000/api/project/${project}/inventory"
+            
+        return tasks
+    }
+
+    static Map templateContent(String alias, String project, String template, String playbook) {
+        def schema = [:]
+        schema.ssh_key_id = 1
+        schema.project_id = project.toInteger()
+        schema.inventory_id = 1
+        schema.repository_id = 1
+        schema.environment_id = 1
+        schema.alias = alias
+        schema.playbook = playbook
+        schema.arguments = ''
+        def tasks = [:]
+        tasks.schema = JsonOutput.toJson(schema)
+        tasks.url = "http://localhost:3000/api/project/${project}/templates"
+            
+        return tasks
+    }
+
     static Map taskContent(String project, String template, String playbook) {
         def schema = [:]
         schema.template_id = template.toInteger()
@@ -69,38 +137,11 @@ class Semaphore {
         return requestParams
     }
 
-//    static String sendTask(String cookie, String project, String template, String playbook) {
-//        def schema = JsonOutput.toJson([template_id: template.toInteger(), debug: false, dry_run: false, playbook: playbook, environment: ''])
-//        def requestParams = buildHeader()
-//        requestParams = addCookie(requestParams, cookie)
-//        requestParams.httpMode = 'POST'
-//        requestParams.requestBody = schema
-//        requestParams.url = "http://localhost:3000/api/project/${project}/tasks"
-//        return requestParams
-//    }
-
     static String FindProject(String projects, String name) {
         def String id = new JSONParser().parseProjects(projects, name)
         return id
     }
     
-//    static Map tasksAPI(String project, String template, String playbook) {
-//        def schema = [:]
-//        schema.projects = 
-//        schema.keys = 
-//        schema.repositories = 
-//        schema.inventory = 
-//        schema.templates = 
-//        schema.tasks = JsonOutput.toJson([\
-//            template_id: template.toInteger(), \
-//            debug: false, \
-//            dry_run: false, \
-//            playbook: playbook, \
-//            environment: ''])
-//        schema.url = "http://localhost:3000/api/project/${project}/tasks"
-//        return schema
-//    }
-
     static String FindTemplate(String templates, String project, String name) {
         def String id = new JSONParser().parseTemplates(templates, project, name)
         return id
