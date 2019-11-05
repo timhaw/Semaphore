@@ -22,7 +22,7 @@ class Semaphore {
 
     static String requestCookie(String username, String password) {
         def credentials = JsonOutput.toJson([auth: username, password: password])
-        requestParams = buildHeader()
+        def requestParams = buildHeader()
         requestParams.httpMode = 'POST'
         requestParams.requestBody = credentials
         requestParams.url = 'http://localhost:3000/api/auth/login'
@@ -30,7 +30,7 @@ class Semaphore {
     }
 
     static String getProjects(String cookie) {
-        requestParams = buildHeader()
+        def requestParams = buildHeader()
         requestParams = addCookie(requestParams, cookie)
         requestParams.httpMode = 'GET'
         requestParams.url = 'http://localhost:3000/api/projects'
@@ -38,7 +38,7 @@ class Semaphore {
     }
 
     static String getTemplates(String cookie, String project) {
-        requestParams = buildHeader()
+        def requestParams = buildHeader()
         requestParams = addCookie(requestParams, cookie)
         requestParams.httpMode = 'GET'
         requestParams.url = "http://localhost:3000/api/project/${project}/templates?sort=alias&order=asc"
@@ -47,6 +47,7 @@ class Semaphore {
 
     static String sendTask(String cookie, String project, String template, String playbook) {
         def schema = JsonOutput.toJson([template_id: template.toInteger(), debug: false, dry_run: false, playbook: playbook, environment: ''])
+        def requestParams = buildHeader()
         requestParams = addCookie(requestParams, cookie)
         requestParams.httpMode = 'POST'
         requestParams.requestBody = schema
