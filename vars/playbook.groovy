@@ -77,7 +77,7 @@ def call(String project, String playbook) {
 //                cookie = httpRequestCookie(username, password)[0]
 //                result = Semaphore.requestCookie(username, password)
                 content = httpRequest Semaphore.requestCookie(username, password)
-                response = content.id
+//                response = content.id
 //                cookie = response.headers.get("Set-Cookie")    
             }
         }
@@ -98,6 +98,6 @@ def call(String project, String playbook) {
             status = httpRequest Semaphore.sendTask(cookie, project_id, template_id, playbook)
         }
 
-        echo "Hello, ${response}"
+        echo "Hello, ${content}"
     }
 }
