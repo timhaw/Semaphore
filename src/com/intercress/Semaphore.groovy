@@ -29,7 +29,7 @@ class Semaphore {
         return requestParams
     }
 
-    static String getProjects(String cookie) {
+    static String[] getProjects(String cookie) {
         def requestParams = buildHeader()
         requestParams = addCookie(requestParams, cookie)
         requestParams.httpMode = 'GET'
