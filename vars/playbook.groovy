@@ -74,12 +74,13 @@ def call(String project, String playbook) {
             credentials.usernameVariable = 'username'
             credentials.passwordVariable = 'password'
             withCredentials([usernamePassword(credentials)]) {
-                cookie = httpRequestCookie(username, password)[0]
+//                cookie = httpRequestCookie(username, password)[0]
+                response = Semaphore.requestCookie(username, password)[0]
+                cookie = response.headers.get("Set-Cookie")    
             }
         }
     
         stage ('project') {
-//            projects = httpGetProjects(cookie)
             response = httpRequest Semaphore.getProjects(cookie)
             projects = response.content
             project_id = Semaphore.FindProject(projects, project)
