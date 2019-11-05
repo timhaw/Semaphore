@@ -60,16 +60,34 @@ class Semaphore {
         return id
     }
     
-    static Map api() {
-        def schema = [:]
-        schema.tasks =
-        schema.projects = 
-        schema.keys = 
-        schema.repositories = 
-        schema.inventory = 
-        schema.templates = 
-        return schema
-    }
+//    static Map tasks(String project, String template, String playbook) {
+//        def schema = [:]
+//        schema.tasks = JsonOutput.toJson([\
+//            template_id: template.toInteger(), \
+//            debug: false, \
+//            dry_run: false, \
+//            playbook: playbook, \
+//            environment: ''])
+//        schema.url = "http://localhost:3000/api/project/${project}/tasks"
+//        return schema
+//    }
+    
+//    static Map tasksAPI(String project, String template, String playbook) {
+//        def schema = [:]
+//        schema.projects = 
+//        schema.keys = 
+//        schema.repositories = 
+//        schema.inventory = 
+//        schema.templates = 
+//        schema.tasks = JsonOutput.toJson([\
+//            template_id: template.toInteger(), \
+//            debug: false, \
+//            dry_run: false, \
+//            playbook: playbook, \
+//            environment: ''])
+//        schema.url = "http://localhost:3000/api/project/${project}/tasks"
+//        return schema
+//    }
 
     static String FindTemplate(String templates, String project, String name) {
         def String id = new JSONParser().parseTemplates(templates, project, name)
