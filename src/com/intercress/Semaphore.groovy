@@ -60,7 +60,7 @@ class Semaphore {
     }
 
     static String sendTask(String cookie, String project, String template, String playbook) {
-        content = new taskContent(project, template, playbook)
+        content = taskContent(project, template, playbook)
         def requestParams = buildHeader()
         requestParams = addCookie(requestParams, cookie)
         requestParams.httpMode = 'POST'
