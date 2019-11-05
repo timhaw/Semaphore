@@ -20,7 +20,7 @@ class Semaphore {
         return requestParams
     }
 
-    static String requestCookie(String username, String password) {
+    static Map requestCookie(String username, String password) {
         def credentials = JsonOutput.toJson([auth: username, password: password])
         def requestParams = buildHeader()
         requestParams.httpMode = 'POST'
