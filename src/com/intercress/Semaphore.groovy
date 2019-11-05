@@ -102,6 +102,13 @@ class Semaphore {
         return requestParams
     }
 
+    static Map addContent(Map requestParams, Map content) {
+        requestParams.httpMode = 'POST'
+        requestParams.requestBody = content.schema
+        requestParams.url = content.url
+        return requestParams
+    }
+
     static Map requestCookie(String username, String password) {
         def credentials = JsonOutput.toJson([auth: username, password: password])
         def requestParams = buildHeader()
@@ -126,6 +133,54 @@ class Semaphore {
         requestParams.url = "http://localhost:3000/api/project/${project}/templates?sort=alias&order=asc"
         return requestParams
     }
+
+    static String sendProject(String name) {
+        def content = projectContent(name) {
+        def requestParams = buildHeader()
+        requestParams = addCookie(requestParams, cookie)
+        requestParams = addContent(requestParams, content)
+        return requestParams
+    }
+
+    static String sendKey(String name, String project, String key, String secret) {
+        def content = keyContent(name, project, key, secret) {
+        def requestParams = buildHeader()
+        requestParams = addCookie(requestParams, cookie)
+        requestParams = addContent(requestParams, content)
+        return requestParams
+    }
+
+    static String sendRepository(String name, String project, String url) {
+        def content = repositoryContent(name, project, url) {
+        def requestParams = buildHeader()
+        requestParams = addCookie(requestParams, cookie)
+        requestParams = addContent(requestParams, content)
+        return requestParams
+    }
+
+    static String sendInventory(String name, String project, String inventory) {
+        def content = inventoryContent(name, project, inventory) {
+        def requestParams = buildHeader()
+        requestParams = addCookie(requestParams, cookie)
+        requestParams = addContent(requestParams, content)
+        return requestParams
+    }
+
+    static String sendTemplate(String alias, String project, String template, String playbook) {
+        def content = templateContent(alias, project, template, playbook) {
+        def requestParams = buildHeader()
+        requestParams = addCookie(requestParams, cookie)
+        requestParams = addContent(requestParams, content)
+        return requestParams
+    }
+
+//    static String sendTask(String cookie, String project, String template, String playbook) {
+//        def content = taskContent(project, template, playbook)
+//        def requestParams = buildHeader()
+//        requestParams = addCookie(requestParams, cookie)
+//        requestParams = addContent(requestParams, content)
+//        return requestParams
+//    }
 
     static String sendTask(String cookie, String project, String template, String playbook) {
         def content = taskContent(project, template, playbook)
