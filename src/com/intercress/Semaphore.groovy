@@ -4,7 +4,7 @@ import groovy.json.JsonOutput
 
 class Semaphore {
     
-    static String buildHeader() {
+    static Map buildHeader() {
         def requestParams = [:]
         requestParams.acceptType = 'APPLICATION_JSON'
         requestParams.contentType = 'APPLICATION_JSON'
@@ -12,7 +12,7 @@ class Semaphore {
         return requestParams
     }
 
-    static String addCookie(String requestParams, String cookie) {
+    static Map addCookie(Map requestParams, String cookie) {
         def cookieHeader = [:]
         cookieHeader.name = 'Cookie'
         cookieHeader.value = cookie
@@ -38,7 +38,7 @@ class Semaphore {
     }
 
     static String getTemplates(String cookie, String project) {
-        String requestParams = buildHeader()
+        def requestParams = buildHeader()
         requestParams = addCookie(requestParams, cookie)
         requestParams.httpMode = 'GET'
         requestParams.url = "http://localhost:3000/api/project/${project}/templates?sort=alias&order=asc"
@@ -47,7 +47,7 @@ class Semaphore {
 
     static String sendTask(String cookie, String project, String template, String playbook) {
         def schema = JsonOutput.toJson([template_id: template.toInteger(), debug: false, dry_run: false, playbook: playbook, environment: ''])
-        String requestParams = buildHeader()
+        def requestParams = buildHeader()
         requestParams = addCookie(requestParams, cookie)
         requestParams.httpMode = 'POST'
         requestParams.requestBody = schema
