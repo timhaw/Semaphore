@@ -77,7 +77,7 @@ def call(String project, String playbook) {
 //                cookie = httpRequestCookie(username, password)[0]
 //                result = Semaphore.requestCookie(username, password)
                 content = httpRequest Semaphore.requestCookie(username, password)
-                response = Semaphore.extractCookie(content)
+                response = content.id
 //                cookie = response.headers.get("Set-Cookie")    
             }
         }
