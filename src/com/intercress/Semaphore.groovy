@@ -135,7 +135,7 @@ class Semaphore {
     }
 
     static String sendProject(String name) {
-        def content = projectContent(name) {
+        def content = projectContent(name)
         def requestParams = buildHeader()
         requestParams = addCookie(requestParams, cookie)
         requestParams = addContent(requestParams, content)
@@ -143,7 +143,7 @@ class Semaphore {
     }
 
     static String sendKey(String name, String project, String key, String secret) {
-        def content = keyContent(name, project, key, secret) {
+        def content = keyContent(name, project, key, secret)
         def requestParams = buildHeader()
         requestParams = addCookie(requestParams, cookie)
         requestParams = addContent(requestParams, content)
@@ -151,7 +151,7 @@ class Semaphore {
     }
 
     static String sendRepository(String name, String project, String url) {
-        def content = repositoryContent(name, project, url) {
+        def content = repositoryContent(name, project, url)
         def requestParams = buildHeader()
         requestParams = addCookie(requestParams, cookie)
         requestParams = addContent(requestParams, content)
@@ -159,7 +159,7 @@ class Semaphore {
     }
 
     static String sendInventory(String name, String project, String inventory) {
-        def content = inventoryContent(name, project, inventory) {
+        def content = inventoryContent(name, project, inventory)
         def requestParams = buildHeader()
         requestParams = addCookie(requestParams, cookie)
         requestParams = addContent(requestParams, content)
@@ -167,7 +167,7 @@ class Semaphore {
     }
 
     static String sendTemplate(String alias, String project, String template, String playbook) {
-        def content = templateContent(alias, project, template, playbook) {
+        def content = templateContent(alias, project, template, playbook)
         def requestParams = buildHeader()
         requestParams = addCookie(requestParams, cookie)
         requestParams = addContent(requestParams, content)
