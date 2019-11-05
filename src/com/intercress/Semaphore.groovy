@@ -60,12 +60,11 @@ class Semaphore {
     }
 
     static String sendTask(String cookie, String project, String template, String playbook) {
-        def schema = JsonOutput.toJson([template_id: template.toInteger(), debug: false, dry_run: false, playbook: playbook, environment: ''])
         def requestParams = buildHeader()
         requestParams = addCookie(requestParams, cookie)
         requestParams.httpMode = 'POST'
-        requestParams.requestBody = schema
-        requestParams.url = "http://localhost:3000/api/project/${project}/tasks"
+        requestParams.requestBody = tasksContent.schema
+        requestParams.url = tasksContent.url
         return requestParams
     }
 
