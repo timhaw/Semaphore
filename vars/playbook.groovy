@@ -79,14 +79,15 @@ def call(String project, String playbook) {
         }
     
         stage ('project') {
-            projects = httpGetProjects(cookie)
+//            projects = httpGetProjects(cookie)
+            response = httpRequest Semaphore.getProjects(cookie, project)
+            projects = response.content
             project_id = Semaphore.FindProject(projects, project)
         }
     
         stage ('template') {
             response = httpRequest Semaphore.getTemplates(cookie, project_id)
             templates = response.content
-//            templates = httpGetTemplates(cookie, project_id)
             template_id = Semaphore.FindTemplate(templates, project_id, playbook)
         }
     
