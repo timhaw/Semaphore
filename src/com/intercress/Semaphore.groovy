@@ -26,7 +26,7 @@ class Semaphore {
         requestParams.httpMode = 'POST'
         requestParams.requestBody = credentials
         requestParams.url = 'http://localhost:3000/api/auth/login'
-        return requestParams
+        return 'Wibble'
     }
 
     static String getProjects(String cookie) {
