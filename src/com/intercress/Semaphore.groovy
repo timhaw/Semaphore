@@ -9,18 +9,20 @@ class Semaphore {
         requestParams.acceptType = 'APPLICATION_JSON'
         requestParams.contentType = 'APPLICATION_JSON'
         requestParams.consoleLogResponseBody = true
+        return requestParams
     }
 
-    static String addCookie(String cookie) {
+    static String addCookie(String requestParams, String cookie) {
         def cookieHeader = [:]
         cookieHeader.name = 'Cookie'
         cookieHeader.value = cookie
         requestParams.customHeaders = [cookieHeader]
+        return requestParams
     }
 
     static String requestCookie(String username, String password) {
         def credentials = JsonOutput.toJson([auth: username, password: password])
-        buildHeader
+        requestParams = buildHeader()
         requestParams.httpMode = 'POST'
         requestParams.requestBody = credentials
         requestParams.url = 'http://localhost:3000/api/auth/login'
@@ -28,12 +30,16 @@ class Semaphore {
     }
 
     static String getProjects(String cookie) {
+        requestParams = buildHeader()
+        requestParams = addCookie(requestParams, cookie)
         requestParams.httpMode = 'GET'
         requestParams.url = 'http://localhost:3000/api/projects'
         return requestParams
     }
 
     static String getTemplates(String cookie, String project) {
+        requestParams = buildHeader()
+        requestParams = addCookie(requestParams, cookie)
         requestParams.httpMode = 'GET'
         requestParams.url = "http://localhost:3000/api/project/${project}/templates?sort=alias&order=asc"
         return requestParams
@@ -41,6 +47,7 @@ class Semaphore {
 
     static String sendTask(String cookie, String project, String template, String playbook) {
         def schema = JsonOutput.toJson([template_id: template.toInteger(), debug: false, dry_run: false, playbook: playbook, environment: ''])
+        requestParams = addCookie(requestParams, cookie)
         requestParams.httpMode = 'POST'
         requestParams.requestBody = schema
         requestParams.url = "http://localhost:3000/api/project/${project}/tasks"
