@@ -134,7 +134,7 @@ class Semaphore {
         return requestParams
     }
 
-    static String sendProject(String name) {
+    static String sendProject(String cookie, String name) {
         def content = projectContent(name)
         def requestParams = buildHeader()
         requestParams = addCookie(requestParams, cookie)
@@ -142,7 +142,7 @@ class Semaphore {
         return requestParams
     }
 
-    static String sendKey(String name, String project, String key, String secret) {
+    static String sendKey(String cookie, String name, String project, String key, String secret) {
         def content = keyContent(name, project, key, secret)
         def requestParams = buildHeader()
         requestParams = addCookie(requestParams, cookie)
@@ -150,7 +150,7 @@ class Semaphore {
         return requestParams
     }
 
-    static String sendRepository(String name, String project, String url) {
+    static String sendRepository(String cookie, String name, String project, String url) {
         def content = repositoryContent(name, project, url)
         def requestParams = buildHeader()
         requestParams = addCookie(requestParams, cookie)
@@ -158,7 +158,7 @@ class Semaphore {
         return requestParams
     }
 
-    static String sendInventory(String name, String project, String inventory) {
+    static String sendInventory(String cookie, String name, String project, String inventory) {
         def content = inventoryContent(name, project, inventory)
         def requestParams = buildHeader()
         requestParams = addCookie(requestParams, cookie)
@@ -166,7 +166,7 @@ class Semaphore {
         return requestParams
     }
 
-    static String sendTemplate(String alias, String project, String template, String playbook) {
+    static String sendTemplate(String cookie, String alias, String project, String template, String playbook) {
         def content = templateContent(alias, project, template, playbook)
         def requestParams = buildHeader()
         requestParams = addCookie(requestParams, cookie)
