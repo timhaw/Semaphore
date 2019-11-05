@@ -13,9 +13,7 @@ class Semaphore {
         requestParams.httpMode = 'POST'
         requestParams.requestBody = credentials
         requestParams.url = 'http://localhost:3000/api/auth/login'
-        def cookie = httpRequest requestParams
-        def cookieContent = cookie.headers.get("Set-Cookie")    
-        return cookieContent
+        return requestParams
     }
 
     static String httpGetProjects(String cookie) {
@@ -29,8 +27,7 @@ class Semaphore {
         requestParams.customHeaders = [cookieHeader]
         requestParams.httpMode = 'GET'
         requestParams.url = 'http://localhost:3000/api/projects'
-        def response = httpRequest requestParams
-        return response.content
+        return requestParams
     }
 
     static String httpGetTemplates(String cookie, String project) {
@@ -44,8 +41,7 @@ class Semaphore {
         requestParams.customHeaders = [cookieHeader]
         requestParams.httpMode = 'GET'
         requestParams.url = "http://localhost:3000/api/project/${project}/templates?sort=alias&order=asc"
-        def response = httpRequest requestParams
-        return response.content
+        return requestParams
     }
 
     static String httpSendTask(String cookie, String project, String template, String playbook) {
@@ -61,8 +57,7 @@ class Semaphore {
         requestParams.httpMode = 'POST'
         requestParams.requestBody = schema
         requestParams.url = "http://localhost:3000/api/project/${project}/tasks"
-        def response = httpRequest requestParams
-        return response
+        return requestParams
     }
 
     static String FindProject(String projects, String name) {
