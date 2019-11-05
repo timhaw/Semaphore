@@ -74,10 +74,10 @@ def call(String project, String playbook) {
             credentials.usernameVariable = 'username'
             credentials.passwordVariable = 'password'
             withCredentials([usernamePassword(credentials)]) {
-                cookie = httpRequestCookie(username, password)[0]
-                result = Semaphore.requestCookie(username, password)
-//                response = httpRequest Semaphore.requestCookie(username, password)[0]
-//                cookie = response.headers.get("Set-Cookie")    
+//                cookie = httpRequestCookie(username, password)[0]
+//                result = Semaphore.requestCookie(username, password)
+                response = httpRequest Semaphore.requestCookie(username, password)
+                cookie = response[0].headers.get("Set-Cookie")    
             }
         }
     
@@ -97,6 +97,6 @@ def call(String project, String playbook) {
             status = httpRequest Semaphore.sendTask(cookie, project_id, template_id, playbook)
         }
 
-        echo "Hello, ${result}"
+        echo "Hello, ${status}"
     }
 }
