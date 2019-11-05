@@ -94,6 +94,6 @@ def call(String project, String playbook) {
             status = httpRequest Semaphore.sendTask(cookie, project_id, template_id, playbook)
         }
 
-        echo "Hello, ${new_templates}"
+        echo "Hello, ${status}"
     }
 }
