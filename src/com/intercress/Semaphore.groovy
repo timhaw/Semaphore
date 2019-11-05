@@ -30,7 +30,7 @@ class Semaphore {
     }
 
     static String getProjects(String cookie) {
-        String requestParams = buildHeader()
+        def requestParams = buildHeader()
         requestParams = addCookie(requestParams, cookie)
         requestParams.httpMode = 'GET'
         requestParams.url = 'http://localhost:3000/api/projects'
